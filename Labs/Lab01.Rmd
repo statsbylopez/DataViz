@@ -173,7 +173,7 @@ c.  We can use the same operator to access columns of a matrix – for example, 
 
 d.  To get a single element in a matrix, we use row and column numbers, such as ```flights[r,c]```.  This will also extract a submatrix if multiple entries are used for each.  Obtain and display the element in ```flights```’s 5th row, 3rd column. Then obtain and display the submatrix ```flights[c(1,2),c(3,4)]```.
 
-e.  We can also ask questions about our data/variables.  The ``==`` operator is a True/False test of equality.  For example, ```column6==0``` returns ```TRUE``` for every element in ```column6``` that is equal to 0, and ```FALSE``` for elements different than 1.  We can do similar things with the symbols ```<```, ```<=```, ```>```, ```>=```.  You can also combine two conditions with the AND (```&```) and OR (```|```) operators: 
+e.  We can also ask questions about our data/variables.  The ``==`` operator is a True/False test of equality.  For example, ```column6 == 0``` returns ```TRUE``` for every element in ```column6``` that is equal to 0, and ```FALSE``` for elements different than 1.  We can do similar things with the symbols ```<```, ```<=```, ```>```, ```>=```.  You can also combine two conditions with the AND (```&```) and OR (```|```) operators: 
 
     +  ```column6 >= -5 & column6 < 5```:  ```column6``` is greater than or equal to -5 AND ```column6``` is less than 5
     +  ```sum(column6 == 0, na.rm = TRUE)```:  counts how many 0s there are in ```column6``` (while ignoring missing numbers).
