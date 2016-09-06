@@ -1,0 +1,113 @@
+---
+title: "DataViz Homework 01"
+author: "Your Name Here"
+output: html_document
+---
+
+#  Homework 01:  Introduction to R, RStudio, Data Types, and Critiquing Graphics
+
+***General instructions for homeworks***: 
+
++  Open the R Markdown file (.Rmd) from the course Github page
++  Click on "Raw" - this brings you to raw .Rmd code that you can copy and paste
++  Change the heading to include your author name
++  Save the R Markdown file (named as:  [MikeID]-[Homework01].Rmd -- e.g. "mlopez-Lab01.Rmd") to somewhere where you'll be able to access it later (zip drive, My Documents, Dropbox, etc)
++  Your file should contain the code/commands to answer each question in its own code block, which will also produce plots that will be automatically embedded in the output file
++  Each answer must be supported by written statements (unless otherwise specified) as well as any code used
++  Include the names of anyone you collaborated with at the top of the assignment
+
+
+##  Problem 1
+
+**Downloading R and R Studio**:  
+
+If you are using your own, personal computer, you will need to download and install R and RStudio.  Follow the instructions here to do so (be sure to choose the correct operating system, and 64-bit R if possible/compatible):  [https://www.rstudio.com/products/rstudio/download/]
+
+Once you get RStudio open, open the Homework01.Rmd file from Blackboard and open it in RStudio (File / Open...).  It may be helpful to use the Lab01.Rmd file on Blackboard as a template for your submission.  
+
+Click "Knit HTML."
+
+Notice how the text you write in the .Rmd file shows up in the output file each time you click "Knit HTML".  For more tips/tricks on how to format things in R Markdown, go to [https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf]
+
+**Where is my output file?**
+
+Find where you stored your [MikeID]-Homework01.Rmd file on your computer.  
+
+In the same directory, there should be a file called [MikeID]-Homework01.html.  
+
+Open it.  It should automatically open in a browser, and it should contain the output.  
+
+In the future, you'll print these .html files and submit as your HW solution. 
+
+**Note**: Be sure to give yourself enough time to print the HTML files on a campus computer. You can store them on zip-drives, but you *cannot* email them to yourself.
+
+**Note**: Knitting as Word documents is not sufficient, as MS Word is not quite compatable with Markdown.
+
+
+##  Problem 2
+
+**Critiquing Graphs**:
+
+Find a graph from the internet, preferably something that was in a recent (last 7 days) news article, blog post, etc.  Describe and crique your graph, while considering the following questions. 
+
++  What does the graph show?
++  Does the graph do a good job of achieving its goals?
++  What are the strong points (advantages) of the graphic?
++  What are the weak points (disadvantages) of the graphic?
++  What would you change (if anything) about this graphic?
++  Read the caption and/or surrounding text.  Does the text enhance the user's understanding of the graphic?
+
+
+## Problem 3
+
+**Introduction to ggplot2**:  
+
+Create a single code block that contains R commands to do all of the following:
+
+a.  $(12)*3 - 1$
+b.  $sqrt(4)$
+c.  $log(100)$. 
+d.  Let $y = 2$.  Let $x = 6y + y^2$.  Print $x$.
+
+Is `log()` the base `e` log or base 10 log?
+
+
+##  Problem 4
+
+**Introduction to ggplot2**:  
+
+In R, there are several libraries or packages/groups of programs that are not used enough to have them permanently stored in R.  One that will be particularly useful in our class is called `ggplot2`.
+
+a.  Type `library(ggplot2)` at the command line.  Is the `ggplot2` package installed on your computer?  If not, type `install.packages("ggplot2")`, then repeat the `library(ggplot2)` command above.
+
+b.  The Comprehensive R Archive Network, or CRAN, stores most publicly accessible, open-source R packages for anyone to use.  Find CRAN's documentation on the `ggplot2` package (e.g. by searching "ggplot2 in R" on the internet).  You should find a PDF document that has 198 pages of documentation about `ggplot2`.  What does the "gg" in `ggplot2` stand for?
+
+c.  Who are the authors of the `ggplot2` package?  Who is the maintainer of the `ggplot2` package?  Search this person's name on the internet.  What are some other R packages this person has written?
+
+d. Type `library(datasets)`. Load the `trees` dataset into R by typing `data(trees)`.  Type `head(trees)` to view the first few rows of this dataset.  How many columns does the dataset have?  What are the names of the columns?
+
+e. Make your first `ggplot2` graphic:  
+
+    +  Type `my.plot <- ggplot(data = trees, aes(x = Girth, y = Height))`.  This will create the graph object.
+    +  Type `my.plot <- my.plot + geom_point(data = trees, aes(colour = Volume), size = 4)`.  This will add points to the graph object, colored by Volume.
+    +  Type `my.plot <- my.plot + ggtitle("Title Here") + labs(x = "x axis label here", y = "y axis label here")`
+    +  Change the above code to give the graph an informative title and informative axis labels.  Include units in the axis labels if possible.  See `help(trees)` for more information about the units.
+    +  Critique your own graph.  What do you like?  What do you dislike?  What would you change in the future?
+    +  Is there any unnecessary data ink used in this graph?
+
+##  Problem 5
+
+Refer to the R Markdown cheatsheet, posted at the beginning of this homework and in the lab. What do the `eval`, `echo`, and `warning` messages do?
+
+##  Problem 6
+
+**Background**
+
+
+a.  What is your major? 
+
+b.  What experience do you have using R or RStudio?
+
+c.  What do you want to get out of this course? 
+
+**When you are done with the assignment, knit as an HTML. Check to make sure your code and output has embedded wherever neccessary (in this assignment, problems 3 and 4). When done, print and hand in the HTML file.
