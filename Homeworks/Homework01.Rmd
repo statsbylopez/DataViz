@@ -8,7 +8,7 @@ output: html_document
 
 ***General instructions for homeworks***: 
 
-+  Open the R Markdown file (.Rmd) from the course Github page
++  Open the R Markdown file (.Rmd) on the course Github page
 +  Click on "Raw" - this brings you to raw .Rmd code that you can copy and paste
 +  Change the heading to include your author name
 +  Save the R Markdown file (named as:  [MikeID]-[Homework01].Rmd -- e.g. "mlopez-Lab01.Rmd") to somewhere where you'll be able to access it later (zip drive, My Documents, Dropbox, etc)
@@ -64,10 +64,13 @@ Find a graph from the internet, preferably something that was in a recent (last 
 
 Create a single code block that contains R commands to do all of the following:
 
-a.  $(12)*3 - 1$
-b.  $sqrt(4)$
-c.  $log(100)$. 
-d.  Let $y = 2$.  Let $x = 6y + y^2$.  Print $x$.
+a.  `(12)*3 - 1`
+
+b.  `sqrt(4)`
+
+c.  `log(100)`. 
+
+d.  Let `y = 2`.  Let `x = 6y + y^2`.  Print `x`.
 
 Is `log()` the base `e` log or base 10 log?
 
@@ -88,12 +91,12 @@ d. Type `library(datasets)`. Load the `trees` dataset into R by typing `data(tre
 
 e. Make your first `ggplot2` graphic:  
 
-    +  Type `my.plot <- ggplot(data = trees, aes(x = Girth, y = Height))`.  This will create the graph object.
-    +  Type `my.plot <- my.plot + geom_point(data = trees, aes(colour = Volume), size = 4)`.  This will add points to the graph object, colored by Volume.
-    +  Type `my.plot <- my.plot + ggtitle("Title Here") + labs(x = "x axis label here", y = "y axis label here")`
-    +  Change the above code to give the graph an informative title and informative axis labels.  Include units in the axis labels if possible.  See `help(trees)` for more information about the units.
-    +  Critique your own graph.  What do you like?  What do you dislike?  What would you change in the future?
-    +  Is there any unnecessary data ink used in this graph?
+    - Type `my.plot <- ggplot(data = trees, aes(x = Girth, y = Height))`.  This will create the graph object.
+    - Type `my.plot <- my.plot + geom_point(data = trees, aes(colour = Volume), size = 4)`.  This will add points to the graph object, colored by Volume.
+    - Type `my.plot <- my.plot + ggtitle("Title Here") + labs(x = "x axis label here", y = "y axis label here")`
+     - Change the above code to give the graph an informative title and informative axis labels.  Include units in the axis labels if possible.  See `help(trees)` for more information about the units.
+    - Critique your own graph.  What do you like?  What do you dislike?  What would you change in the future?
+    - Is there any unnecessary data ink used in this graph?
 
 ##  Problem 5
 
