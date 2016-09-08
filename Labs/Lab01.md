@@ -65,7 +65,7 @@ When you open your new R Markdown file, you should see a block of code (beginnin
 
 **This is a code block!**  You can type commands into this block, and they will be executed by R and included in your output.
 
-0. Play around with the following command by printing different things.  Each time, knit.
+**0.** Play around with the following command by printing different things.  Each time, knit.
 
 
 ```r
@@ -98,7 +98,7 @@ x^2
 
 Comments should be used frequently when writing code to give insight into what each piece of code is doing.  To add a comment to your code, start a new line with the # symbol.  
 
-1. Add a comment in your first code block that says "I am printing 'Hello, World!' in R Markdown". Add another comment that says what your major is.
+**1.** Add a comment in your first code block that says "I am printing 'Hello, World!' in R Markdown". Add another comment that says what your major is.
 
 
 ```r
@@ -142,7 +142,7 @@ e. Repeat (d) for `y=5/6`.
 
 **Built-in Help and Documentation**  
 
-3.  Using the `help()` and `help.search()` functions at the command line, use R to do the following:
+**3.** Using the `help()` and `help.search()` functions at the command line, use R to do the following:
 
 a.  Find the help documentation for the `quantile` function by entering `help(quantile)` or `?quantile`.  This function takes a vector of numbers and computes quantiles for the vectors.  What is the description of the `probs` argument?
 
@@ -156,7 +156,7 @@ Note that because everything is online, you can use online search engines to ach
 
 **Loading a library in R**  
 
-4.  In R, there are several libraries or packages/groups of programs that are not used enough to have them permanently stored in R.  We can load the library into R by typing library(library-name) at the command line. (Sometimes we need to download the library first; more on this later.)
+**4.** In R, there are several libraries or packages/groups of programs that are not used enough to have them permanently stored in R.  We can load the library into R by typing library(library-name) at the command line. (Sometimes we need to download the library first; more on this later.)
 
 a.  Load the `MASS` library into R by entering `library(MASS)`.  Open the help documentation for the MASS package.  What is the official name of this MASS package?  It may help to use `library(help=MASS)` to solve this problem.
 
@@ -182,7 +182,7 @@ flights <- na.omit(flights)
 
 Note that you only need to install an R packages **once** per computer. It'll be there again.
 
-5. Complete the following
+**5.** Complete the following
 
 a. Start a new code block.  Type `flights %>% head(nrows = 10)`.  What does the `head` function do?  
 
@@ -197,7 +197,7 @@ e. How can you get the number of rows and columns simultaneously?  Hint:  `help(
 
 **Data Management**
 
-6.  Data management questions
+**6.** Data management questions
 
 a.  The `c()` function concatenates numbers into a vector.  For example, `myvector <- c(1,3,6,9)` creates a vector that has four elements.  Use `c()` to create a vector called myvector that contains all the perfect squares (1,4,9,16, ...) less than 100.  
 
@@ -219,7 +219,7 @@ How many items in `column6` are greater than 0? What does this represent?
 
 Return to the cheatsheet for Markdown.  By adding different commends to the `{r, }''' heading of a code-box, we can provide Markdown alternative ways of printing code. 
 
-7. Per the cheatsheet, learn the `eval`, `echo`, and `warning` messages do. 
+**7.** Per the cheatsheet, learn the `eval`, `echo`, and `warning` messages do. 
 
 
 ```r
