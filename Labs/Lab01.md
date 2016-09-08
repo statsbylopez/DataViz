@@ -16,7 +16,6 @@ Notice how the text you write in the .Rmd file shows up in the output file each 
 ***General instructions for labs***: 
 
 +  Open the R Markdown file (.Rmd) from the course Github page
-+  Click on "Raw" - this brings you to raw .Rmd code that you can copy and paste
 +  Change the heading to include your author name
 +  Save the R Markdown file (named as:  [MikeID]-[Lab01].Rmd -- e.g. "mlopez-Lab01.Rmd") to somewhere where you'll be able to access it later (zip drive, My Documents, Dropbox, etc)
 +  Your file should contain the code/commands to answer each question in its own code block, which will also produce plots that will be automatically embedded in the output file
@@ -66,7 +65,7 @@ When you open your new R Markdown file, you should see a block of code (beginnin
 
 **This is a code block!**  You can type commands into this block, and they will be executed by R and included in your output.
 
-0.  Play around with the following command by printing different things.  Each time, knit.
+0. Play around with the following command by printing different things.  Each time, knit.
 
 
 ```r
