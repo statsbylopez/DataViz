@@ -125,7 +125,7 @@ Open it.  It should automatically open in a browser, and it should contain the o
 In the future, you'll print and submit these .html files for homeworks and labs.
 
 
-2. Create a single code block that contains R commands to do all of the following:
+**2.** Create a single code block that contains R commands to do all of the following:
 
 a. `(6+3)*4 - 5`
 
