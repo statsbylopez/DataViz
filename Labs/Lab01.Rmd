@@ -28,7 +28,7 @@ Notice how the text you write in the .Rmd file shows up in the output file each 
 ***Additional instructions for HWs***: 
 
 +  Include the names of anyone you collaborated with at the top of the assignment
-+  For Lab 01 only, do not worry about adhering to a particular style guide.  We will cover this on Homework 01.
++  For Lab 01 only, do not worry about adhering to a particular style guide.  We will cover this eventually
 
 
 Todays lab will introduce different aspects of R. We will reference a cheatsheet with tips/tricks on how to format things in R Markdown, hosted [here](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf).  Prior to starting the lab, please download the handout and open it on your computer screen. 
@@ -107,11 +107,11 @@ In the future, you'll print and submit these .html files for homeworks and labs.
 
 2. Create a single code block that contains R commands to do all of the following:
 
-a.  $(6+3)*4 - 5$
-b.  $4^2$
-c.  $e^{-5}$  (hint:  type `help(exp)` at the command line in R Studio
-d.  Let $y=8$.  Let $x = 5-6y$.  Print $x$.
-e.  Repeat (d) for $y=5/6$.
+a.  `(6+3)*4 - 5`
+b.  `4^2`
+c.  `e^{-5}`  (hint:  type `help(exp)` at the command line in R Studio
+d.  Let `y=8`.  Let `x = 5-6y`.  Print `x`.
+e.  Repeat (d) for `y=5/6`.
 
 
 
@@ -120,7 +120,7 @@ e.  Repeat (d) for $y=5/6$.
 
 3.  Using the `help()` and `help.search()` functions at the command line, use R to do the following:
 
-a.  Find the help documentation for the `quantile` function.  This function takes a vector of numbers and computes quantiles for the vectors.  What is the description of the `probs` argument?
+a.  Find the help documentation for the `quantile` function by entering `help(quantile)` or `?quantile`.  This function takes a vector of numbers and computes quantiles for the vectors.  What is the description of the `probs` argument?
 
 b.  Find the help documentation for the `mean` function.  This function takes a vector of numbers and computes their average.  What is the example code at the bottom of the help page?
 
@@ -134,7 +134,7 @@ Note that because everything is online, you can use online search engines to ach
 
 4.  In R, there are several libraries or packages/groups of programs that are not used enough to have them permanently stored in R.  We can load the library into R by typing library(library-name) at the command line. (Sometimes we need to download the library first; more on this later.)
 
-a.  Load the `MASS` library into R.  Open the help documentation for the MASS package.  What is the official name of this MASS package?  It may help to use `library(help=MASS)` to solve this problem.
+a.  Load the `MASS` library into R by entering `library(MASS)`.  Open the help documentation for the MASS package.  What is the official name of this MASS package?  It may help to use `library(help=MASS)` to solve this problem.
 
 b.  Load the `datasets` library.  Find the help documentation for its `trees` dataset.  Describe this dataset using information from the help pages.
 
@@ -159,12 +159,14 @@ Note that you only need to install an R packages **once** per computer. It'll be
 
 5. Complete the following
 
-We will focus mostly on the `flights' data set to start.
-
 a.  Start a new code block.  Type `flights %>% head(nrows = 10)`.  What does the `head` function do?  
+
 b.  How many rows does `flights` have?  Hint:  `help(nrow)` 
+
 c.  What happens when you add `, nrows = 10` inside the parentheses in the line of code in (a)?  
+
 d.  How many columns does `flights` have?  Hint:  `help(ncol)`
+
 e.  How can you get the number of rows and columns simultaneously?  Hint:  `help(dim)`
 
 
