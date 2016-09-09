@@ -8,12 +8,11 @@ output: html_document
 
 ***General instructions for homeworks***: 
 
-+  Open the R Markdown file (.Rmd) on the course Github page
-+  Click on "Raw" - this brings you to raw .Rmd code that you can copy and paste
++  Make a new R Markdown file (.Rmd) on the course Github page
 +  Change the heading to include your author name
 +  Save the R Markdown file (named as:  [MikeID]-[Homework01].Rmd -- e.g. "mlopez-Lab01.Rmd") to somewhere where you'll be able to access it later (zip drive, My Documents, Dropbox, etc)
 +  Your file should contain the code/commands to answer each question in its own code block, which will also produce plots that will be automatically embedded in the output file
-+  Each answer must be supported by written statements (unless otherwise specified) as well as any code used
++  **Each answer must be supported by written statements (unless otherwise specified) as well as any code used**: In other words, if the answer is `24`, you should write "The answer is 24" (as opposed to just showing the code and output).
 +  Include the names of anyone you collaborated with at the top of the assignment
 
 
@@ -60,7 +59,7 @@ Find a graph from the internet, preferably something that was in a recent (last 
 
 ## Problem 3
 
-**Introduction to ggplot2**:  
+**Introduction to R**:  
 
 Create a single code block that contains R commands to do all of the following:
 
@@ -77,32 +76,9 @@ Is `log()` the base `e` log or base 10 log?
 
 ##  Problem 4
 
-**Introduction to ggplot2**:  
-
-In R, there are several libraries or packages/groups of programs that are not used enough to have them permanently stored in R.  One that will be particularly useful in our class is called `ggplot2`.
-
-a.  Type `library(ggplot2)` at the command line.  Is the `ggplot2` package installed on your computer?  If not, type `install.packages("ggplot2")`, then repeat the `library(ggplot2)` command above.
-
-b.  The Comprehensive R Archive Network, or CRAN, stores most publicly accessible, open-source R packages for anyone to use.  Find CRAN's documentation on the `ggplot2` package (e.g. by searching "ggplot2 in R" on the internet).  You should find a PDF document that has 198 pages of documentation about `ggplot2`.  What does the "gg" in `ggplot2` stand for?
-
-c.  Who are the authors of the `ggplot2` package?  Who is the maintainer of the `ggplot2` package?  Search this person's name on the internet.  What are some other R packages this person has written?
-
-d. Type `library(datasets)`. Load the `trees` dataset into R by typing `data(trees)`.  Type `head(trees)` to view the first few rows of this dataset.  How many columns does the dataset have?  What are the names of the columns?
-
-e. Make your first `ggplot2` graphic:  
-
-+  Type `my.plot <- ggplot(data = trees, aes(x = Girth, y = Height))`.  This will create the graph object.
-+  Type `my.plot <- my.plot + geom_point(data = trees, aes(colour = Volume), size = 4)`.  This will add points to the graph object, colored by Volume.
-+  Type `my.plot <- my.plot + ggtitle("Title Here") + labs(x = "x axis label here", y = "y axis label here")`
-+  Change the above code to give the graph an informative title and informative axis labels.  Include units in the axis labels if possible.  See `help(trees)` for more information about the units.
-+  Critique your own graph.  What do you like?  What do you dislike?  What would you change in the future?
-+  Is there any unnecessary data ink used in this graph?
-
-##  Problem 5
-
 Refer to the R Markdown cheatsheet, posted at the beginning of this homework and in the lab. What do the `eval`, `echo`, and `warning` messages do?
 
-##  Problem 6
+##  Problem 5
 
 **Background**
 
@@ -113,4 +89,4 @@ b.  What experience do you have using R or RStudio?
 
 c.  What skills would you like to get out of this course? 
 
-**When you are done with the assignment, knit as an HTML. Check to make sure your code and output has embedded wherever neccessary (in this assignment, problems 3 and 4). When done, print and hand in the HTML file.
+**When you are done with the assignment, knit as an HTML. Check to make sure your code and output has embedded wherever neccessary (in this assignment, problem 3). When done, print and hand in the HTML file.
