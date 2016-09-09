@@ -176,7 +176,9 @@ To get the package on your computer, follow the code below.
 
 ```r
 install.packages("nycflights13")
+install.packages("dplyr")
 library(nycflights13)
+library(dplyr)
 flights <- na.omit(flights)
 ```
 
@@ -184,11 +186,11 @@ Note that you only need to install an R packages **once** per computer. It'll be
 
 **5.** Complete the following
 
-a. Start a new code block.  Type `flights %>% head(nrows = 10)`.  What does the `head` function do?  
+a. Start a new code block.  Type `flights %>% head()`.  What does the `head` function do?  
 
 b. How many rows does `flights` have?  Hint:  `help(nrow)` 
 
-c. What happens when you add `, nrows = 10` inside the parentheses in the line of code in (a)?  
+c. What happens when you add `head(10)` inside the parentheses in the line of code in (a)?  
 
 d. How many columns does `flights` have?  Hint:  `help(ncol)`
 
