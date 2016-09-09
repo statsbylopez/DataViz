@@ -176,7 +176,9 @@ To get the package on your computer, follow the code below.
 
 ```r
 install.packages("nycflights13")
+install.packages("dplyr")
 library(nycflights13)
+library(dplyr)
 flights <- na.omit(flights)
 ```
 
