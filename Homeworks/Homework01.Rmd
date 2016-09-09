@@ -4,7 +4,7 @@ author: "Your Name Here"
 output: html_document
 ---
 
-#  Homework 01:  Introduction to R, RStudio, Data Types, and Critiquing Graphics
+#  Homework 01:  Introduction to R, RStudio, RMarkdown
 
 ***General instructions for homeworks***: 
 
