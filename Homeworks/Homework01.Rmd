@@ -76,7 +76,7 @@ Is `log()` the base `e` log or base 10 log?
 
 ##  Problem 4
 
-Refer to the R Markdown cheatsheet, posted at the beginning of this homework and in the lab. What do the `eval`, `echo`, and `warning` messages do?
+Refer to the R Markdown cheatsheet, posted at the beginning of this homework and in the lab. What do the `eval`, `echo`, and `warning` messages do? Try them, to make sure you understand why they might be useful.
 
 ##  Problem 5
 
