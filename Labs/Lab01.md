@@ -190,7 +190,7 @@ a. Start a new code block.  Type `flights %>% head()`.  What does the `head` fun
 
 b. How many rows does `flights` have?  Hint:  `help(nrow)` 
 
-c. What happens when you add `, nrows = 10` inside the parentheses in the line of code in (a)?  
+c. What happens when you add `head(10)` inside the parentheses in the line of code in (a)?  
 
 d. How many columns does `flights` have?  Hint:  `help(ncol)`
 
