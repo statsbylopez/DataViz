@@ -186,7 +186,7 @@ Note that you only need to install an R packages **once** per computer. It'll be
 
 **5.** Complete the following
 
-a. Start a new code block.  Type `flights %>% head(nrows = 10)`.  What does the `head` function do?  
+a. Start a new code block.  Type `flights %>% head()`.  What does the `head` function do?  
 
 b. How many rows does `flights` have?  Hint:  `help(nrow)` 
 
