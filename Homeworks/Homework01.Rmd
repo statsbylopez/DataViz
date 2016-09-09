@@ -16,7 +16,7 @@ output: html_document
 +  Include the names of anyone you collaborated with at the top of the assignment
 
 
-##  Problem 1
+##  Initial setup
 
 **Downloading R and R Studio**:  
 
@@ -41,6 +41,17 @@ In the future, you'll print these .html files and submit as your HW solution.
 **Note**: Be sure to give yourself enough time to print the HTML files on a campus computer. You can store them on zip-drives, but you *cannot* email them to yourself.
 
 **Note**: Knitting as Word documents is not sufficient, as MS Word is not quite compatable with Markdown.
+
+##  Problem 1
+
+**Background**
+
+
+a.  What is your major? 
+
+b.  What experience do you have using R or RStudio?
+
+c.  What skills would you like to get out of this course? 
 
 
 ##  Problem 2
@@ -78,15 +89,7 @@ Is `log()` the base `e` log or base 10 log?
 
 Refer to the R Markdown cheatsheet, posted at the beginning of this homework and in the lab. What do the `eval`, `echo`, and `warning` messages do? Try them, to make sure you understand why they might be useful.
 
-##  Problem 5
-
-**Background**
 
 
-a.  What is your major? 
-
-b.  What experience do you have using R or RStudio?
-
-c.  What skills would you like to get out of this course? 
 
 **When you are done with the assignment, knit as an HTML. Check to make sure your code and output has embedded wherever neccessary (in this assignment, problem 3). When done, print and hand in the HTML file.
