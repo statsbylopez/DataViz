@@ -55,6 +55,7 @@ The dplyr package aims to provide a function for each basic verb of data manipul
 + `filter()` (and `slice()`)
 + `select()` (and `rename()`)
 + `mutate()` 
++ `arrange()`
 + `summarise()`
 + `sample_n()`
 
@@ -121,7 +122,25 @@ flights %>%
   select(month, day, origin, dest, gain) 
 ```
 
-### Summarise values with summarise()
+
+### Arrange values with `arrange()`
+
+Arrange does exactly what you think it does - it arranges variables from lowest to greatest (or alphabetically, for characters).
+
+
+```r
+flights %>% 
+  arrange(distance) %>%
+  head(5)
+
+flights %>%
+  arrange(-distance) %>%
+  head(5)
+```
+
+The shortest flights are between Newark and Philly (80 miles), while the longest flights in the data set are between JFK and Honolulu (4983 miles).
+
+### Summarise values with `summarise()`
 
 The last verb is summarise(). It collapses a data frame to a single row and executes a specific function.
 
@@ -181,7 +200,8 @@ airlines <- flights %>%
   mutate(on.time = arr_delay <= 0) %>%
   group_by(carrier) %>%
   summarise(count = n(), delay.ave = mean(arr_delay), on.time.ave = mean(on.time)) %>%
-  filter(count >= 20000)
+  filter(count >= 20000) %>%
+  arrange(delay.ave)
 airlines
 ```
 
@@ -190,6 +210,14 @@ You can identify airline codes by visiting ```http://www.iata.org/publications/P
 **10.** Describe each of the steps above, and consider how the order in which the steps are made is important.
 
 ## On your own
+
+**11.** Find the five individual flights with the longest delay times in the data
+
+**12.** Find the five flight numbers (`tailnum`) with the longest average delay times.
+
+**13.** Identify the total distance and average travel distance within each month.
+
+**14.** Create a new variable, `nighttime`, which is an indicator (TRUE/FALSE) for whether or not the flight took place at 7:00 PM or later (`hour >= 19`), and estimate the average distance and depature delay time within both `nighttime` groups.
 
 
 
