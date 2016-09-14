@@ -1,0 +1,60 @@
+---
+title: "DataViz Homework 02"
+author: "Your Name Here"
+output: html_document
+---
+
+#  Homework 02:  Data manipulation, grammar of graphics
+
+***General instructions for homeworks***: 
+
++  Make a new R Markdown file (.Rmd), referring to the assignment on the course Github page
++  Change the heading to include your author name
++  Save the R Markdown file (named as:  [MikeID]-[Homework01].Rmd -- e.g. "mlopez-Lab01.Rmd") to somewhere where you'll be able to access it later (zip drive, My Documents, Dropbox, etc)
++  Your file should contain the code/commands to answer each question in its own code block, which will also produce plots that will be automatically embedded in the output file
++  **Each answer must be supported by written statements (unless otherwise specified) as well as any code used**: In other words, if the answer is `24`, you should write "The answer is 24" (as opposed to just showing the code and output).
++  Include the names of anyone you collaborated with at the top of the assignment
+
+
+
+##  Problem 1
+
+What can we learn from Harambe?  
+
+In the spring of 2016, Harambe, a gorilla at the Cincinnati Zoo, was killed after dragging a three-year-old boy who had climbed into the gorilla enclosure. In the months following his death, Harambe was remembered on social media in several strange fashions. 
+
+One specific article [(link)](https://www.brandwatch.com/2016/09/react-harambe-would-have-loved-this-article/) looks at the ways in which Harambe was remembered, 
+including a chart [(link)](https://14415-presscdn-0-52-pagely.netdna-ssl.com/wp-content/uploads/2016/09/harambe-would-have-loved-1024x569.png) showing common words associated with the gorilla (read the article for specifics) 
+
++ Describe the variables in the plot, and identify their types
++ Describe the seven characteristics in the grammar of graphics with respect to this chart
++ Identify if there are any data-ink or distortion factors with respect to this chart.
+
+## Problem 2
+
+The journal PLOS-ONE publishes some of it's better data visualization from academic journals, available at the link here:
+
+http://journals.plos.org/plosone/browse/data_visualization
+
+One specific article looks at the performance deterioration in online user sessions on Reddit. In other words, comments get worse over time. The chart shown [here](http://journals.plos.org/plosone/article/figure/image?size=large&id=info:doi/10.1371/journal.pone.0161636.g002) shows the score (higher is more pleasant, lower is more critical) based on comment index, where comment index is a 1 for the first comment, a 2 for the second comment, etc.
+
++ Comment on the aesthetics of this graph
+
++ Comment on the data-ink ratio of this graph
+
++ From a statistical perspective, one may remain skeptical that these differences are meaningful. What additional information might be useful as far as identifying if the two groups are different? And how could the authors have shown this information?
+
+You can read the full journal article here: http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0161636
+
+## Question 3
+
+Return to Lab 02 and the flights data set.
+
+**a.** Find the five individual flights with the longest delay times in the data. Find the five flights with the shortest delay times in the data. 
+
+**b.** Find the five flight numbers (`tailnum`) with the longest average delay times.
+
+**c.** Identify the total distance and average travel distance within each month.
+
+**d.** Create a new variable, `nighttime`, which is an indicator (TRUE/FALSE) for whether or not the flight took place at 7:00 PM or later (`hour >= 19`), and estimate the average distance and depature delay time within both `nighttime` groups.
+
