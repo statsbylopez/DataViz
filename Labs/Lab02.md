@@ -188,7 +188,7 @@ flights %>%
   
 **8.** Look up airport codes for the airports shown above. Do these numbers make sense given what we know about these airports?
 
-**9.** Replace the `head()` command with `filter()` to obtain the average delay time and distance for flights into JFK.
+**9.** Replace the `head()` command with `filter()` to obtain the average delay time and distance for flights into Boston (BOS).
 
 ### Putting it all together
 
