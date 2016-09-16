@@ -50,6 +50,25 @@ You can read the full journal article here: http://journals.plos.org/plosone/art
 
 Return to Lab 02 and the flights data set.
 
+A researcher is interested in analyzing the performance of all airlines which have at least 20000 departing flights from NYC. Our goal is to obtain the airline with the lowest average delay time (departure delay) as well as the highest proportion of flights that left on time.
+
+
+```r
+airlines <- flights %>%
+  mutate(on.time = arr_delay <= 0) %>%
+  group_by(carrier) %>%
+  summarise(count = n(), delay.ave = mean(arr_delay), on.time.ave = mean(on.time)) %>%
+  filter(count >= 20000) %>%
+  arrange(delay.ave)
+airlines
+```
+
+You can identify airline codes by visiting ```http://www.iata.org/publications/Pages/code-search.aspx```.
+
+Describe each of the steps above, and consider how the order in which the steps are made is important - Why can the filter command not come before the summarise command, for example.
+
+## Question 4
+
 **a.** Find the five individual flights with the longest delay times in the data. Find the five flights with the shortest delay times in the data. 
 
 **b.** Find the five flight numbers (`tailnum`) with the longest average delay times.
@@ -58,3 +77,4 @@ Return to Lab 02 and the flights data set.
 
 **d.** Create a new variable, `nighttime`, which is an indicator (TRUE/FALSE) for whether or not the flight took place at 7:00 PM or later (`hour >= 19`), and estimate the average distance and depature delay time within both `nighttime` groups.
 
+Note that in `Question 4`, you are graded based on having correct code, output, and interpretation. Code & output alone are not sufficient to receive full credit.
