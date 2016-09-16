@@ -1,0 +1,74 @@
+---
+title: "DataViz Homework 01"
+author: "Professor Lopez"
+output: html_document
+---
+
+
+##  Problem 1
+
+**Background**
+
+
+a.  What is your major? 
+
+I majored in math
+
+b.  What experience do you have using R or RStudio?
+
+Never enough!
+
+c.  What skills would you like to get out of this course? 
+
+See the syllabus
+
+##  Problem 2
+
+**Critiquing Graphs**:
+
+Find a graph from the internet, preferably something that was in a recent (last 7 days) news article, blog post, etc.  Describe and crique your graph, while considering the following questions. 
+
++  What does the graph show?
++  Does the graph do a good job of achieving its goals?
++  What are the strong points (advantages) of the graphic?
++  What are the weak points (disadvantages) of the graphic?
++  What would you change (if anything) about this graphic?
++  Read the caption and/or surrounding text.  Does the text enhance the user's understanding of the graphic?
+
+Answers will vary.
+
+## Problem 3
+
+**Introduction to R**:  
+
+Create a single code block that contains R commands to do all of the following:
+
+a.  `(12)*3 - 1`
+
+b.  `sqrt(4)`
+
+c.  `log(100)`. 
+
+d.  Let `y = 2`.  Let `x = 6y + y^2`.  Print `x`.
+
+Is `log()` the base `e` log or base 10 log?
+
+```{r}
+12*3 - 1
+sqrt(4)
+log(100)
+y <- 2
+x <- 6*y + y^2
+print(x)
+# log() is the base e log
+```
+
+
+##  Problem 4
+
+Refer to the R Markdown cheatsheet, posted at the beginning of this homework and in the lab. What do the `eval`, `echo`, and `warning` messages do? Try them, to make sure you understand why they might be useful.
+
+`eval`: whether or not the code gets evaluated
+`echo`: whether or not the code block shows up after knitting
+`warning`: whether or not to include warning messages
+
