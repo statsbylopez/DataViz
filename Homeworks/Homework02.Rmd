@@ -69,12 +69,12 @@ Describe each of the steps above, and consider how the order in which the steps 
 
 ## Question 4
 
-**a.** Find the five individual flights with the longest delay times in the data. Find the five flights with the shortest delay times in the data. 
+**a.** Find the five individual flights with the longest arrival delay times in the data. Find the five flights with the shortest arrival delay times in the data. 
 
-**b.** Find the five flight numbers (`tailnum`) with the longest average delay times.
+**b.** Find the five flight numbers (`tailnum`) with the longest average arrival delay times.
 
-**c.** Identify the total distance and average travel distance within each month.
+**c.** Identify the total departure delay time and average departure delay time within each month.
 
-**d.** Create a new variable, `nighttime`, which is an indicator (TRUE/FALSE) for whether or not the flight took place at 7:00 PM or later (`hour >= 19`), and estimate the average distance and depature delay time within both `nighttime` groups.
+**d.** Create a new variable, `nighttime`, which is an indicator (TRUE/FALSE) for whether or not the flight took place at 7:00 PM or later (`hour >= 19`), and estimate the average arrival delay time within both `nighttime` groups.
 
 Note that in `Question 4`, you are graded based on having correct code, output, and interpretation. Code & output alone are not sufficient to receive full credit.
