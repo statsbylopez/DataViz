@@ -69,7 +69,7 @@ Describe each of the steps above, and consider how the order in which the steps 
 
 ## Question 4
 
-**a.** Find the five individual flights with the longest departure arrival times in the data. Find the five flights with the shortest arrival delay times in the data. 
+**a.** Find the five individual flights with the longest arrival delay times in the data. Find the five flights with the shortest arrival delay times in the data. 
 
 **b.** Find the five flight numbers (`tailnum`) with the longest average arrival delay times.
 
