@@ -21,7 +21,6 @@ output: html_document
 
 Fivethirtyeight has an interesting article on the political ideologies of different law schools, linked [here](http://fivethirtyeight.com/features/the-most-conservative-and-most-liberal-elite-law-schools/). Our focus will be on the graph titled `The Wide-Ranging Politics of Elite Law Schools`.
 
-+ Describe the 7 graphic principles on this chart. Note that there is only one variable.
 + How would you contrast the distribution of Martin-Quinn scores for Yale and Michigan?
 + Identify the shape of Martin-Quinn scores among clerks at Berkeley.
 + Estimate the 75th percentile of Martin-Quinn scores at Columbia, and interpret this number
