@@ -1,10 +1,10 @@
 ---
-title: "DataViz Homework 02"
+title: "DataViz Homework 03"
 author: "Your Name Here"
 output: html_document
 ---
 
-#  Homework 02:  Data manipulation, grammar of graphics
+#  Homework 03:  Data manipulation, continuous variables
 
 ***General instructions for homeworks***: 
 
@@ -19,9 +19,7 @@ output: html_document
 
 ##  Problem 1
 
-What can we learn from Harambe?  
-
-In the spring of 2016, Harambe, a gorilla at the Cincinnati Zoo, was killed after dragging a three-year-old boy who had climbed into the gorilla enclosure. In the months following his death, Harambe was remembered on social media in several strange fashions. 
+Refer to lecture 3, the last 5 slides. Code each plot
 
 One specific article [(link)](https://www.brandwatch.com/2016/09/react-harambe-would-have-loved-this-article/) looks at the ways in which Harambe was remembered, 
 including a chart [(link)](https://14415-presscdn-0-52-pagely.netdna-ssl.com/wp-content/uploads/2016/09/harambe-would-have-loved-1024x569.png) showing common words associated with the gorilla (read the article for specifics) 

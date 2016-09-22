@@ -1,0 +1,89 @@
+---
+title: "DataViz Homework 03"
+author: "Your Name Here"
+output: html_document
+---
+
+#  Homework 03:  Data manipulation, continuous variables
+
+***General instructions for homeworks***: 
+
++  Make a new R Markdown file (.Rmd), referring to the assignment on the course Github page
++  Change the heading to include your author name
++  Save the R Markdown file (named as:  [MikeID]-[Homework01].Rmd -- e.g. "mlopez-Lab01.Rmd") to somewhere where you'll be able to access it later (zip drive, My Documents, Dropbox, etc)
++  Your file should contain the code/commands to answer each question in its own code block, which will also produce plots that will be automatically embedded in the output file
++  **Each answer must be supported by written statements (unless otherwise specified) as well as any code used**: In other words, if the answer is `24`, you should write "The answer is 24" (as opposed to just showing the code and output).
++  Include the names of anyone you collaborated with at the top of the assignment
+
+
+
+##  Problem 1
+
+Fivethirtyeight has an interesting article on the political ideologies of different law schools, linked [here](http://fivethirtyeight.com/features/the-most-conservative-and-most-liberal-elite-law-schools/). Our focus will be on the graph titled `The Wide-Ranging Politics of Elite Law Schools`.
+
++ Describe the 7 graphic principles on this chart. Note that there is only one variable.
++ How would you contrast the distribution of Martin-Quinn scores for Yale and Michigan?
++ Identify the shape of Martin-Quinn scores among clerks at Berkeley.
++ Estimate the 75th percentile of Martin-Quinn scores at Columbia, and interpret this number
+
+## Problem 2
+
+Describe the center, shape, and spread of the histogram shown [here](http://fivethirtyeight.com/features/what-our-nba-projections-got-right-and-wrong-last-season/). From a statistical perspective, is it a good thing for a histogram of errors to be centered at 0?
+
+## Problem 3
+
+A scatter plot of FB shares versus Buzzfeed listicles is shown [here](http://minimaxir.com/2015/02/ggplot-tutorial/). 
+
++ What is the effect of showing each dot in a lightened shade? Does this make sense with this data?
++ How does the author show the trend between the two variables over time? Does this make sense with this data?
+
+## Problem 4
+
+A Fivethirtyeight article linked [here, note the author!](http://fivethirtyeight.com/features/how-your-favorite-baseball-team-blows-its-money/) looks at the association between payroll and win percentage. Note that payroll is standardized (values less than 0 are lower than average payrolls, while greater than 0 are higher than average payrolls).
+
++ What is the effect of the light grey line in the background? What does this suggest about the link between payroll and performance in baseball?
++ What is the effect of faceting by team?
++ Identify a team with a (i) positive link between payroll and performance, a (ii) quadratic/u-shaped link between payroll and performance, and (iii) No obvious link between payroll and performance.
+
+
+## Problem 5
+
+Greg at statsinthewild.com made an interesting set of boxplots, shown [here](https://statsinthewild.files.wordpress.com/2012/07/screen-shot-2012-07-16-at-1-43-40-pm.png), which look at the distributions of ages among Olympic athletes.
+
++ Why do many sports have outliers at higher ages but not lower ages?  
++ What is the interquartile range of ages among male lacrosse players?  This boxplot can roughly be found in the middle of the chart
+
+
+## Problem 6
+
+Make these four charts using the `diamonds` data set. This data set comes as part of the `ggplot2` package, which you'll need to load. Recall, you can learn more details about data sets using the `help()` command. 
+
+
+
+```{r, echo = FALSE, message = FALSE, echo = FALSE}
+library(dplyr); library(ggplot2)
+ggplot(diamonds, aes(carat, price)) + 
+  geom_point() + xlab("Carat") + ylab("Price") + ggtitle("Price of a diamond by carat") +
+  geom_smooth()
+```
+
+```{r, echo = FALSE}
+ggplot(diamonds, aes(price, colour = color)) + 
+  geom_density()
+```
+
+
+```{r, echo = FALSE}
+ggplot(diamonds, aes(cut, price)) + 
+  geom_violin() + xlab("") + ylab("Price") + 
+  coord_flip() + ggtitle("Price of a diamond by cut")
+```
+
+```{r, echo = FALSE}
+diamonds1 <- diamonds %>% filter(cut == "Premium")
+ggplot(diamonds1, aes(depth, carat)) + 
+  geom_jitter() + 
+  ggtitle("Carat and depth of premium diamonds") + 
+  xlab("Depth") +
+  ylab("Carat")
+```
