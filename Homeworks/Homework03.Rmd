@@ -55,6 +55,6 @@ Greg at statsinthewild.com made an interesting set of boxplots, shown [here](htt
 
 ## Problem 6
 
-Make these four charts using the `diamonds` data set. This data set comes as part of the `ggplot2` package, which you'll need to load. Recall, you can learn more details about data sets using the `help()` command. 
+Make the four charts using the `diamonds` data set shown [here](https://github.com/statsbylopez/DataViz/blob/master/Homeworks/Homework03_plots.pdf), and also available on the course Github page under Homeworks/Homework03. The `diamonds` data comes as part of the `ggplot2` package, which you'll need to load. Recall, you can learn more details about data sets using the `help()` command. 
 
 
