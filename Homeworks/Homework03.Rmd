@@ -58,31 +58,3 @@ Greg at statsinthewild.com made an interesting set of boxplots, shown [here](htt
 Make these four charts using the `diamonds` data set. This data set comes as part of the `ggplot2` package, which you'll need to load. Recall, you can learn more details about data sets using the `help()` command. 
 
 
-
-```{r, echo = FALSE, message = FALSE, echo = FALSE}
-library(dplyr); library(ggplot2)
-ggplot(diamonds, aes(carat, price)) + 
-  geom_point() + xlab("Carat") + ylab("Price") + ggtitle("Price of a diamond by carat") +
-  geom_smooth()
-```
-
-```{r, echo = FALSE}
-ggplot(diamonds, aes(price, colour = color)) + 
-  geom_density()
-```
-
-
-```{r, echo = FALSE}
-ggplot(diamonds, aes(cut, price)) + 
-  geom_violin() + xlab("") + ylab("Price") + 
-  coord_flip() + ggtitle("Price of a diamond by cut")
-```
-
-```{r, echo = FALSE}
-diamonds1 <- diamonds %>% filter(cut == "Premium")
-ggplot(diamonds1, aes(depth, carat)) + 
-  geom_jitter() + 
-  ggtitle("Carat and depth of premium diamonds") + 
-  xlab("Depth") +
-  ylab("Carat")
-```
