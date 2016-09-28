@@ -1,0 +1,129 @@
+---
+title: "DataViz Homework 03 solutions"
+author: "Your Name Here"
+output: html_document
+---
+
+#  Homework 03:  Data manipulation, continuous variables
+
+***General instructions for homeworks***: 
+
++  Make a new R Markdown file (.Rmd), referring to the assignment on the course Github page
++  Change the heading to include your author name
++  Save the R Markdown file (named as:  [MikeID]-[Homework01].Rmd -- e.g. "mlopez-Lab01.Rmd") to somewhere where you'll be able to access it later (zip drive, My Documents, Dropbox, etc)
++  Your file should contain the code/commands to answer each question in its own code block, which will also produce plots that will be automatically embedded in the output file
++  **Each answer must be supported by written statements (unless otherwise specified) as well as any code used**: In other words, if the answer is `24`, you should write "The answer is 24" (as opposed to just showing the code and output).
++  Include the names of anyone you collaborated with at the top of the assignment
+
+
+
+##  Problem 1
+
+Fivethirtyeight has an interesting article on the political ideologies of different law schools, linked [here](http://fivethirtyeight.com/features/the-most-conservative-and-most-liberal-elite-law-schools/). Our focus will be on the graph titled `The Wide-Ranging Politics of Elite Law Schools`.
+
++ How would you contrast the distribution of Martin-Quinn scores for Yale and Michigan?
+
+*Michigan's M-Q score is roughly centered at 0, while Yale's is closer to -1. Yale's shows a bimodal, roughly symmetric shape, while Michigan's is skewed to the left. The spreads are, overall, roughly the same, varying from -5 to 5.* 
+
++ Identify the shape of Martin-Quinn scores among clerks at Berkeley.
+
+*Right skewed*
+
++ Estimate the 75th percentile of Martin-Quinn scores at Columbia, and interpret this number
+
+*Answers will vary: somewhere around 1 is reasonable*
+
+## Problem 2
+
+Describe the center, shape, and spread of the histogram shown [here](http://fivethirtyeight.com/features/what-our-nba-projections-got-right-and-wrong-last-season/). From a statistical perspective, is it a good thing for a histogram of errors to be centered at 0?
+
+*Centered at 0, unimodal and symmetric, with a spread between roughly -6 and 7. It's a good thing to have errors centered at 0 - otherwise there would a systematic way with which projections were made*
+
+## Problem 3
+
+A scatter plot of FB shares versus Buzzfeed listicles is shown [here](http://minimaxir.com/2015/02/ggplot-tutorial/). 
+
++ What is the effect of showing each dot in a lightened shade? Does this make sense with this data?
+
+*Allows for overlapping dots to show - the darker the dot, the more points that were there. Yes, it makes sense (it's a similar idea to jittering)*
+
++ How does the author show the trend between the two variables over time? Does this make sense with this data?
+
+*A loess curve is used. Given the non-linear link, the curve makes sense*
+
+## Problem 4
+
+A Fivethirtyeight article linked [here, note the author!](http://fivethirtyeight.com/features/how-your-favorite-baseball-team-blows-its-money/) looks at the association between payroll and win percentage. Note that payroll is standardized (values less than 0 are lower than average payrolls, while greater than 0 are higher than average payrolls).
+
++ What is the effect of the light grey line in the background? What does this suggest about the link between payroll and performance in baseball?
+
+*The light grey line shows the league-wide trend - in general, higher payrolls are linked to more wins*
+
++ What is the effect of faceting by team?
+
+*Allows us to see a line for each team*
+
++ Identify a team with a (i) positive link between payroll and performance, a (ii) quadratic/u-shaped link between payroll and performance, and (iii) No obvious link between payroll and performance.
+
+*Answers will vary*
+
+
+## Problem 5
+
+Greg at statsinthewild.com made an interesting set of boxplots, shown [here](https://statsinthewild.files.wordpress.com/2012/07/screen-shot-2012-07-16-at-1-43-40-pm.png), which look at the distributions of ages among Olympic athletes.
+
++ Why do many sports have outliers at higher ages but not lower ages?  
+
+*Age of Olympic athletes, in general, is skewed right. You can be an Olympic athlete at older ages, but not younger ages (in most sports)*
+
++ What is the interquartile range of ages among male lacrosse players?  This boxplot can roughly be found in the middle of the chart
+
+*Roughly 5.5 years*
+
+## Problem 6
+
+Make the four charts using the `diamonds` data set shown [here](https://github.com/statsbylopez/DataViz/blob/master/Homeworks/Homework03_plots.pdf), and also available on the course Github page under Homeworks/Homework03. The `diamonds` data comes as part of the `ggplot2` package, which you'll need to load. Recall, you can learn more details about data sets using the `help()` command. 
+
+**Note**: If you receive an error `Computation failed in stat_smooth()` in `Problem 6`, feel free to submit your code for this question only using the `eval = FALSE` note in your RMarkdown codebox. Please email me with questions.
+
+*Here's my code*
+
+
+```{r, eval = FALSE, message = FALSE}
+library(dplyr); library(ggplot2)
+ggplot(diamonds, aes(carat, price)) + 
+  geom_point() + 
+  xlab("Carat") + 
+  ylab("Price") +
+  ggtitle("Price of a diamond by carat") +
+  geom_smooth()
+```
+
+
+```{r, eval = FALSE}
+ggplot(diamonds, aes(price, colour = color)) + 
+  geom_density() + 
+  ggtitle("Price density by diamond color")
+```
+
+
+```{r, eval = FALSE}
+ggplot(diamonds, aes(cut, price)) + 
+  geom_violin() + 
+  xlab("") + 
+  ylab("Price") + 
+  coord_flip() + 
+  ggtitle("Price of a diamond by cut")
+```
+
+
+```{r, eval = FALSE}
+diamonds1 <- diamonds %>% 
+  filter(cut == "Premium")
+
+ggplot(diamonds1, aes(depth, carat)) + 
+  geom_jitter() + 
+  ggtitle("Carat and depth of premium diamonds") + 
+  xlab("Depth") +
+  ylab("Carat")
+```
