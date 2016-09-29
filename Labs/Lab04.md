@@ -119,7 +119,7 @@ ggplot(profiles, aes(drinks, fill = drugs)) +
 
 **3.** Name two conclusions that are clear from this chart, and identify one or two weaknesses. Let's call this chart plot **A**
 
-**4.** Refer to the code from the most recent lecture. Create both plot **B**, a stacked barchart showing percentages and plot **C.**, a side-by-side barchart.
+**4.** Refer to the code from the most recent lecture. Create both plot **B**, a stacked barchart showing percentages and plot **C**, a side-by-side barchart.
 
 **5.** Which of the plots made above (**A**, **B**, or **C**) best allow you to:
 
@@ -128,7 +128,7 @@ ggplot(profiles, aes(drinks, fill = drugs)) +
 + Contrast different `drug` levels given a person's `drinks` preference.
 
 
-**6.** In plot **B.**, the percentages of non-response (the grey area) grows with increasing drink levels. Any guesses as to why that is?
+**6.** In plot **B**, the percentages of non-response (the grey area) grows with increasing drink levels. Any guesses as to why that is?
 
 **7.** Using previous code, rotate the x-axis on plot **B** by 45-degrees, and change the axis labels. In particular, the y-axis could use a more appropriate label.
 
@@ -147,3 +147,24 @@ ggplot(profiles, aes(drinks, fill = smokes)) +
 ```
 
 **8.** Are there any obvious differences in the two graphs between the two genders?
+
+
+
+## Putting it all together
+
+For our exam, we should be able to:
+
+1. Create, edit, compile, and submit a reproducible RMarkdown document.
+2. Use the `dplyr` package to wrangle data, including filtering, grouping, sampling, and summarizing.
+3. Identify and describe the 7 elements to the grammar of graphics.
+4. Accurately discuss characteristics of visualizations, including data-ink ratio and distortion.
+5. Produce univariate and bivariate visualizations in RStudio for categorical and continuous variables.
+6. Combine steps `2` and `5` together.
+7. Add titles and labels to charts, among other smaller steps to improve RStudio graphs.
+
+
+Example questions using the `profiles` data set
+
++ Identify the average age of male and female OkCupid users
++ Create overlapping density curves of the height of OkCupid users
++ Looking only at users with a `body_type` of `athletic`, compare the likelihood of smoking given drink status using a side-by-side barplot. 
