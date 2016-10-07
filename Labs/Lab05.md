@@ -66,7 +66,7 @@ ggplot(Oxboys, aes(age, height, group = Subject)) +
 
 **Q3.** The center of the x-axis is 0. What does it mean for age to be centered?
 
-**Q4.** Drop the grouping variable in the chart. Can you see the sawtooth?
+As a final check, drop the grouping variable in the chart. Can you see the sawtooth?
 
 ## Multiple groups, multiple layers
 
@@ -92,7 +92,7 @@ ggplot(Oxboys, aes(age, height)) +
 
 Much better. 
 
-**Q5.** Return to high school algebra. Estimate the slope of the line in the chart above (using the main trend line for everyone), and interpret it with respect to the variables in the figure.
+**Q4.** Return to high school algebra. Estimate the slope of the line in the chart above (using the main trend line for everyone), and interpret it with respect to the variables in the figure.
 
 ## Weighting observations
 
