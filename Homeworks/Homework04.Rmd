@@ -1,0 +1,73 @@
+---
+title: "DataViz Homework 04"
+author: "Your Name Here"
+output: html_document
+---
+
+#  Homework 04:  Layering & grouping
+
+***General instructions for homeworks***: 
+
++  Make a new R Markdown file (.Rmd), referring to the assignment on the course Github page
++  Change the heading to include your author name
++  Save the R Markdown file (named as:  [MikeID]-[Homework01].Rmd -- e.g. "mlopez-Lab01.Rmd") to somewhere where you'll be able to access it later (zip drive, My Documents, Dropbox, etc)
++  Your file should contain the code/commands to answer each question in its own code block, which will also produce plots that will be automatically embedded in the output file
++  **Each answer must be supported by written statements (unless otherwise specified) as well as any code used**: In other words, if the answer is `24`, you should write "The answer is 24" (as opposed to just showing the code and output).
++  Include the names of anyone you collaborated with at the top of the assignment
+
+
+
+##  Problem 1
+
+The website Vox.com published an interesting article linked [here](http://www.vox.com/policy-and-politics/2016/10/10/13226264/us-crime-rate-poll). Our interest is in the first graph, titled `Is there more or less crime in the US than two decades ago?`
+
++ In 2-3 clear and concise sentences, describe what this plot is trying to show
++ Identify the margin of error in the article, and use this metric to consider if the differences in crime type are meaningfull.
++ There are a few ways to improve this chart. Name two.
+
+## Problem 2
+
+Here's a chart of the ratio of airline casualties to passengers over time, linked [here](https://i.redd.it/a8cn7k89xpox.png).
+
++ In 2-3 clear and concise sentences, describe what this plot is trying to show
++ There are a several ways to improve this chart. Name five.
+
+
+## Problem 3
+
+Return to the `midwest` data set from `Lab05`.
+
+```{r, warnings = FALSE, message= FALSE}
+library(ggplot2)
+```
+
+Compare the link between county-level percentage in poverty (y-axis) and education (x-axis), accounting for things like state, population total, and/or race. Use one chart only - there is no right answer!
+
+
+## Problem 4
+
+Return to the `nycflights` data set. *Note: copy the following code, which drops flights with missing data*.
+
+```{r, warnings = FALSE, message = FALSE}
+library(nycflights13)
+library(dplyr)
+flights <- na.omit(flights)
+```
+
+Make the following chart. Which carrier tends to save the most time in the air, based on their average departure and arrival delays?
+
+```{r, warning = FALSE, echo = FALSE}
+flights1 <- flights %>% group_by(carrier) %>%
+  summarise(ave.arrdelay = mean(arr_delay), ave.depdelay = mean(dep_delay), n.flights = n())
+
+ggplot(flights1, aes(ave.depdelay, ave.arrdelay, size = n.flights/1000)) + 
+  geom_point() + 
+  xlim(0, 25) + 
+  ylim(0, 25) + 
+  xlab("Average arrival delay") + 
+  ylab("Average departure delay") + 
+  scale_size_area("Number of flights\n(thousands)", breaks = c(5, 10, 20, 40))  + 
+  ggtitle("Average arrival and departure delays, by carrier")
+```
+
+
