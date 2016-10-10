@@ -54,20 +54,8 @@ library(dplyr)
 flights <- na.omit(flights)
 ```
 
-Make the following chart. Which carrier tends to save the most time in the air, based on their average departure and arrival delays?
+Make the following chart [(link)](https://github.com/statsbylopez/DataViz/blob/master/Homeworks/Homework04_plots.pdf). Which carrier tends to save the most time in the air, based on their average departure and arrival delays?
 
-```{r, warning = FALSE, echo = FALSE}
-flights1 <- flights %>% group_by(carrier) %>%
-  summarise(ave.arrdelay = mean(arr_delay), ave.depdelay = mean(dep_delay), n.flights = n())
 
-ggplot(flights1, aes(ave.depdelay, ave.arrdelay, size = n.flights/1000)) + 
-  geom_point() + 
-  xlim(0, 25) + 
-  ylim(0, 25) + 
-  xlab("Average arrival delay") + 
-  ylab("Average departure delay") + 
-  scale_size_area("Number of flights\n(thousands)", breaks = c(5, 10, 20, 40))  + 
-  ggtitle("Average arrival and departure delays, by carrier")
-```
 
 
