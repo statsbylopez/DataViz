@@ -38,22 +38,4 @@ A plot shows the age adjusted, county-level kidney cancer death rates across the
 
 Return to the `midwest` data set. We are going to use the `midwest` data to walk through how different graphs can attempt to answer the same question using different approaches. Don't worry about the axis labels or titles. The point is to get the aesthetics of each graph correct, and to understand what the implied message is.
 
-1. Make a bar graph comparing the average `pecchildbelowpovert` in metro areas (`inmetro`) to non-metro areas. What message does this send about the likelihood of living in poverty versus not poverty, given metro area?
-
-```{r, warnings = FALSE, message= FALSE, echo = FALSE, eval = FALSE}
-library(ggplot2); library(dplyr)
-mid1 <- midwest %>% group_by(inmetro) %>% summarise(ave.ed = mean(percchildbelowpovert))
-ggplot(mid1, aes(factor(inmetro), ave.ed)) + 
-  geom_bar(stat = "identity")
-```
-
-2. Averages tell but one piece of the story. Make overlapping density curves of the population in poverty between each metro type.  How does this change the story? *Note*: You can use `factor(inmetro)` to help R read this variable as a factor.
-
-```{r, echo = FALSE, eval = FALSE}
-ggplot(midwest, aes(x = factor(inmetro), y = percchildbelowpovert)) + 
-  geom_violin() 
-```
-
-better tell the story between poverty and county location, suggest 
-Compare the link between county-level percentage in poverty (y-axis) and education (x-axis), accounting for things like state, population total, and/or race. Use one chart only - there is no right answer!
-
+**Note** This question will be finalized shortly (Monday night)
