@@ -1,0 +1,59 @@
+---
+title: "DataViz Homework 05"
+author: "Your Name Here"
+output: html_document
+---
+
+#  Homework 05:  The graphical model
+
+***General instructions for homeworks***: 
+
++  Make a new R Markdown file (.Rmd), referring to the assignment on the course Github page
++  Change the heading to include your author name
++  Save the R Markdown file (named as:  [MikeID]-[Homework01].Rmd -- e.g. "mlopez-Lab01.Rmd") to somewhere where you'll be able to access it later (zip drive, My Documents, Dropbox, etc)
++  Your file should contain the code/commands to answer each question in its own code block, which will also produce plots that will be automatically embedded in the output file
++  **Each answer must be supported by written statements (unless otherwise specified) as well as any code used**: In other words, if the answer is `24`, you should write "The answer is 24" (as opposed to just showing the code and output).
++  Include the names of anyone you collaborated with at the top of the assignment
+
+
+
+##  Problem 1
+
+The website Business Insider has an article showing gender-based comparisons of attraction, linked [here](http://www.businessinsider.com/dataclysm-shows-men-are-attracted-to-women-in-their-20s-2014-10). Our interest is in the first two graphs, `a man's age vs. the age of women who look best to him`, and `a woman's age vs. the age of the men who look best to her.` Note that these two graphs were initially published in a book titled `Dataclysm`.
+
++ In 2-3 clear and concise sentences, what point are the author's trying to make? And how do you think audience members typically interpret these two charts?
++ With reference to the truth continuum, explain how "truthful" this graph is: mostly untruthful, slightly untruthful, slightly truthful, mostly truthful. What information could be added to make the graph more "truthful"?
+
+
+## Problem 2
+
+A plot shows the age adjusted, county-level kidney cancer death rates across the United States between 1980 and 1989. That plot is linked [here](https://postimg.org/image/arvoaftlt/). For sake of this question, assume that clearer labels and titled were provided, and instead focus on the content of the plot.
+
++ In 2-3 clear and concise sentences, what point are the author's trying to make? And how do you think audience members typically interpret this charts?
++ With reference to the truth continuum, explain how "truthful" this graph is: mostly untruthful, slightly untruthful, slightly truthful, mostly truthful. What information could be added to make the graph more "truthful"? 
+
+
+
+## Problem 3
+
+Return to the `midwest` data set. We are going to use the `midwest` data to walk through how different graphs can attempt to answer the same question using different approaches. Don't worry about the axis labels or titles. The point is to get the aesthetics of each graph correct, and to understand what the implied message is.
+
+1. Make a bar graph comparing the average `pecchildbelowpovert` in metro areas (`inmetro`) to non-metro areas. What message does this send about the likelihood of living in poverty versus not poverty, given metro area?
+
+```{r, warnings = FALSE, message= FALSE}
+library(ggplot2); library(dplyr)
+mid1 <- midwest %>% group_by(inmetro) %>% summarise(ave.ed = mean(percchildbelowpovert))
+ggplot(mid1, aes(factor(inmetro), ave.ed)) + 
+  geom_bar(stat = "identity")
+```
+
+2. Averages tell but one piece of the story. Make overlapping density curves of the population in poverty between each metro type.  How does this change the story? *Note*: You can use `factor(inmetro)` to help R read this variable as a factor.
+
+```{r}
+ggplot(midwest, aes(x = factor(inmetro), y = percchildbelowpovert)) + 
+  geom_violin() 
+```
+
+better tell the story between poverty and county location, suggest 
+Compare the link between county-level percentage in poverty (y-axis) and education (x-axis), accounting for things like state, population total, and/or race. Use one chart only - there is no right answer!
+
