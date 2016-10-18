@@ -1,5 +1,5 @@
 ---
-title: "DataViz Homework 05"
+title: "DataViz Homework 05 graphs"
 author: "Your Name Here"
 output: html_document
 ---
@@ -38,7 +38,7 @@ A plot shows the age adjusted, county-level kidney cancer death rates across the
 
 Return to the `midwest` data set. We are going to use the `midwest` data to walk through how different graphs can attempt to answer the same type of question using different approaches. 
 
-Our interest is in characterizing child poverty rates (`percchildbelowpovert`) between metro areas and non metro areas. **Note**: The focus of this question is on the motiviations behind each graph and how they are likely to be interpreted.
+Our interest is in characterizing child poverty rates (`percchildbelowpovert`) between metro areas and non metro areas. The focus of this question is on the motiviations behind each graph and how they are likely to be interpreted.
 
 First, because `inmetro` is coded as a numeric variable, we want R to identify that it actually represents a factor. 
 
@@ -47,8 +47,11 @@ library(ggplot2); library(dplyr)
 midwest <- midwest %>% mutate(inmetro = factor(inmetro))
 ```
 
-1. Make each of the graphs in linked document, labeled (A) - (D). For each graph, summarize in approximately 2 sentences what the chart is showing regarding the relationship between child poverty rates and city metropolitan status. 
+1. Make each of the graphs in linked document [(here)](https://github.com/statsbylopez/DataViz/blob/master/Homeworks/HW5_plots.pdf), labeled (A) - (C). 
 
-2. Order (A) - (D) with respect to the truth continuum. 
+2. For each graph, summarize in approximately 2 sentences what the chart is showing regarding the relationship between child poverty rates and city metropolitan status. 
 
-3. Suggest ways that even the most `truthful` graph that you produced could be improved. 
+3.  (A) - (C) are arranged from left to right with respect to the truth continuum. Identify the main improvement in `truth` made between when moving from (A) to (B) and from (B) to (C).
+
+4. Suggest ways that even the most `truthful` graph (C) could be improved.
+
