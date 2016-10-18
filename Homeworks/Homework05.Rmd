@@ -36,6 +36,19 @@ A plot shows the age adjusted, county-level kidney cancer death rates across the
 
 ## Problem 3
 
-Return to the `midwest` data set. We are going to use the `midwest` data to walk through how different graphs can attempt to answer the same question using different approaches. Don't worry about the axis labels or titles. The point is to get the aesthetics of each graph correct, and to understand what the implied message is.
+Return to the `midwest` data set. We are going to use the `midwest` data to walk through how different graphs can attempt to answer the same type of question using different approaches. 
 
-**Note** This question will be finalized shortly (Monday night)
+Our interest is in characterizing child poverty rates (`percchildbelowpovert`) between metro areas and non metro areas. **Note**: The focus of this question is on the motiviations behind each graph and how they are likely to be interpreted.
+
+First, because `inmetro` is coded as a numeric variable, we want R to identify that it actually represents a factor. 
+
+```{r}
+library(ggplot2); library(dplyr)
+midwest <- midwest %>% mutate(inmetro = factor(inmetro))
+```
+
+1. Make each of the graphs in linked document, labeled (A) - (D). For each graph, summarize in approximately 2 sentences what the chart is showing regarding the relationship between child poverty rates and city metropolitan status. 
+
+2. Order (A) - (D) with respect to the truth continuum. 
+
+3. Suggest ways that even the most `truthful` graph that you produced could be improved. 
