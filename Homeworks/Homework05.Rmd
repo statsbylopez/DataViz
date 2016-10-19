@@ -44,7 +44,8 @@ First, because `inmetro` is coded as a numeric variable, we want R to identify t
 
 ```{r}
 library(ggplot2); library(dplyr)
-midwest <- midwest %>% mutate(inmetro = factor(inmetro))
+midwest <- midwest %>% mutate(inmetro = ifelse(inmetro == 1, "Metropolitan", "Non-metropolitan"))
+
 ```
 
 1. Make each of the graphs in linked document [(here)](https://github.com/statsbylopez/DataViz/blob/master/Homeworks/HW5_plots.pdf), labeled (A) - (C). 
