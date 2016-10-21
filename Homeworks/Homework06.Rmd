@@ -30,6 +30,11 @@ output: html_document
 
 Return to the `nycflights13` package, and the `flights` data set. Our goal is to compare the likelihood of an departure delay given the flight's origin. Are certain NYC airports easier to get our of than others?
 
+```{r}
+library(nycflights13)
+flights <- na.omit(flights)
+```
+
 + First, referring to our code from the last lecture and lab, use the `ifelse()` command to create a new variable (`is.delay`) for whether or not a flight has an departure delay more than 5 minutes (labeled as `Delayed`) or not (labeled as `Not Delayed)`
 
 + Next, what are the rates of `is.delay` at each of the three NYC airports?
@@ -37,6 +42,8 @@ Return to the `nycflights13` package, and the `flights` data set. Our goal is to
 + Make a bar graph showing these rates
 
 + Make a bar graph showing these rates, adding in error bars to account for uncertainty in these proportions. Note that whether or not a flight is delayed is a *categorical* variable. 
+
++ Return to our initial question: Are certain airports easier to get out of (from a delay perspective) than others? Or do you think the observed differences are due to chance? Answer in 1-2 sentences.
 
 
 ## Question 3
