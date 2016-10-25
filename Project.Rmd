@@ -1,0 +1,60 @@
+---
+title: "DataViz Project Requirements"
+author: "Fall 2016"
+output:
+  html_document:
+    keep_md: yes
+  pdf_document: default
+---
+
+## Requirements
+
++ Work in pairs
+
++ You may use data from the internet, data that you've collected yourself, or data that you may have used for another class. However, this project is meant to be different than anything you've done before
+
+## Skills
+
++ RMarkdown
+
++ Data cleaning and (possibly) data manipulation
+
++ Data visualization
+
++ Assessment of data visualizations
+
+## Deadlines
+
++ Proposal 11/30 - a one to two page introduction which (i) explores your question(s) of interest, (ii) a literature review in which you summarize the work done of others, (ii) an explanation of your data, including a description of each variable and the sample size and (iv) who your work will generalize too (i.e, why should *other* people be interested in this work).
+
++ Presentations 12/14 - we do these on the last day of class
+
++ Technical reports 12/20 - due at midnight at december 19th. This will be a continuation of your proposals to include your graphics and conclusions
+
+## Evaluation of presentation (10 points each)
+
++ Creativity (in design)
++ Visualization details
++ Depth/appropriateness of visualization
++ Accuracy of presentation
++ Presentation (volume, presence, eye contact, etc) 
+
+## Project details
+
++ 3 to 4 high quality plots. You'll print these in advance and hand to the class before the presentation. You may also use interactive plots. 
+
+## Report details
+
+1. Introduction (1 page). Why is your problem important? What other work has been done? Why are your questions of interest actually interesting? What does your data look like? Where does it come from? How was it obtained? What are the variable types and units? What were the steps you took in cleaning the data?
+
+2. Visualizations \& descriptive statistics \& descriptions of visualizations (page length will vary). 
+
+3. Conclusions (1 page). Practical findings and conclusions. Weaknesses in design. Other variables that you'd want to look at
+
+
+
+## Notes
+
++ You should show **all** code for your technical report, but that your report to the class should only show code where needed (e.g., if you are doing something new)
+
++ Please cite your sources, either using traditional format (Lopez, 2013) or links to URLs. See the Markdown cheatsheet for how to use URLs in Markdown. 
