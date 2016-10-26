@@ -66,7 +66,14 @@ output:
 
 ## Report details
 
-1. Introduction (1 page). Why is your problem important? What other work has been done? Why are your questions of interest actually interesting? What does your data look like? Where does it come from? How was it obtained? What are the variable types and units? What were the steps you took in cleaning the data?
+See this [link](https://raw.githubusercontent.com/statsbylopez/DataViz/master/Final_Report_Template.Rmd) for a template. This will comprise your final presentation (which you'll scroll through) and the final paper.
+
+1. Introduction (1 page). 
+
++ Why is your problem important? 
++ What other work has been done? 
++ Why are your questions of interest actually interesting? 
++ What does your data look like? Where does it come from? How was it obtained? What are the variable types and units? What were the steps you took in cleaning the data?
 
 2. Descriptions of visualizations (page length will vary). 
 
