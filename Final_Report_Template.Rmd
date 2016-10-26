@@ -1,0 +1,114 @@
+---
+title: "Data Visualization Final Report"
+author: "List of Group Member Names"
+date:  "December, 2016"
+output: 
+  html_document:
+    toc:  true
+    toc_float:  true
+    code_folding:  hide
+---
+
+***
+***
+
+
+#  Group Information
+
+List your group number, group name, group member names
+
+
+#  Data and Subgroup Description
+
+(no more than two paragraphs)
+
+Data source:  [...]
+
+Summary of the dataset:  [number of rows/columns, variables available, variable types and units, what does a single row of the dataset correspond to, etc]
+
+We chose the following data manipulation:  [Describe your data wrangling here.]
+
+We are interested in exploring the following about our data:  [...]
+
+Here is what else has been done: [...]
+
+
+#  Graph 1 Title
+
+Insert the graphic itself here (or an example version of the graphic if the graphic is interactive)
+
+One paragraph (3-5 sentences) summarizing the key takeaways of graphic and any interesting features / associations / relationships / etc that the user should understand
+
+One paragraph (3-5 sentences) describing the tools used to create the graphic (e.g. `ggplot` features, other plotting tools, etc), the coding techniques necessary to manipulate the data in order to create the graphic (e.g. subsetting, etc), and any graphical choices that were made (e.g. bandwidth / bin width choices, etc)
+
+
+
+#  Graph 2 Title
+
+Insert the graphic itself here (or an example version of the graphic if the graphic is interactive)
+
+One paragraph (3-5 sentences) summarizing the key takeaways of graphic and any interesting features / associations / relationships / etc that the user should understand
+
+One paragraph (3-5 sentences) describing the tools used to create the graphic (e.g. `ggplot` features, other plotting tools, etc), the coding techniques necessary to manipulate the data in order to create the graphic (e.g. subsetting, etc), and any graphical choices that were made (e.g. bandwidth / bin width choices, etc)
+
+
+
+#  Graph 3 Title
+
+Insert the graphic itself here (or an example version of the graphic if the graphic is interactive)
+
+One paragraph (3-5 sentences) summarizing the key takeaways of graphic and any interesting features / associations / relationships / etc that the user should understand
+
+One paragraph (3-5 sentences) describing the tools used to create the graphic (e.g. `ggplot` features, other plotting tools, etc), the coding techniques necessary to manipulate the data in order to create the graphic (e.g. subsetting, etc), and any graphical choices that were made (e.g. bandwidth / bin width choices, etc)
+
+
+
+#  Graph 4 Title
+
+Insert the graphic itself here (or an example version of the graphic if the graphic is interactive)
+
+One paragraph (3-5 sentences) summarizing the key takeaways of graphic and any interesting features / associations / relationships / etc that the user should understand
+
+One paragraph (3-5 sentences) describing the tools used to create the graphic (e.g. `ggplot` features, other plotting tools, etc), the coding techniques necessary to manipulate the data in order to create the graphic (e.g. subsetting, etc), and any graphical choices that were made (e.g. bandwidth / bin width choices, etc)
+
+
+#  Graph 5 Title
+
+Insert the graphic itself here (or an example version of the graphic if the graphic is interactive)
+
+One paragraph (3-5 sentences) summarizing the key takeaways of graphic and any interesting features / associations / relationships / etc that the user should understand
+
+One paragraph (3-5 sentences) describing the tools used to create the graphic (e.g. `ggplot` features, other plotting tools, etc), the coding techniques necessary to manipulate the data in order to create the graphic (e.g. subsetting, etc), and any graphical choices that were made (e.g. bandwidth / bin width choices, etc)
+
+
+
+#  Graph 6 Title
+
+Insert the graphic itself here (or an example version of the graphic if the graphic is interactive)
+
+One paragraph (3-5 sentences) summarizing the key takeaways of graphic and any interesting features / associations / relationships / etc that the user should understand
+
+One paragraph (3-5 sentences) describing the tools used to create the graphic (e.g. `ggplot` features, other plotting tools, etc), the coding techniques necessary to manipulate the data in order to create the graphic (e.g. subsetting, etc), and any graphical choices that were made (e.g. bandwidth / bin width choices, etc)
+
+
+#  Conclusions
+
+(no more than two paragraphs)
+
+Summarize the main points and takeaways from your work on this project.
+
+Is there anything that you would explore further if you had the time?
+
+
+\ 
+&nbsp;
+\ 
+&nbsp;
+\ 
+&nbsp;
+\ 
+&nbsp;
+\ 
+&nbsp;
+\ 
+&nbsp;
