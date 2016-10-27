@@ -30,7 +30,7 @@ Once you've entered the table, go ahead and save your file as a csv. For purpose
 
 The first thing you'll need to do is find the file path for your folder. If you can't find `Lab07.csv`, one option is to search for it in the control panel.
 
-1. Write the file path for `Lab07.csv`.
+**Q1** Write the file path for `Lab07.csv`.
 
 It's easy to read in data using R. Change the code below in order to access the data to Lab07.
 
@@ -41,7 +41,7 @@ lab07 <- read.csv("<FilePath>/Lab07.csv")
 lab07 %>% head()
 ```
 
-2. Make a bar plot of the percentage of voters of each race who are voting Clinton. Include bars that account for the margin of error of these percentages. Are the differences in the fraction of voters statistically meaningful? *Note*: Refer to Lecture 4 for reminders on barplot coding with summary data.
+**Q2** Make a bar plot of the percentage of voters of each race who are voting Clinton. Include bars that account for the margin of error of these percentages. Are the differences in the fraction of voters statistically meaningful? *Note*: Refer to Lecture 4 for reminders on barplot coding with summary data.
 
 Hopefully, you now feel comfortable reading in data from .csv's that you can do so with your own data.
 
@@ -62,7 +62,7 @@ We can read HTML tables into R using the `XML` package.
 
 
 ```r
-library(XML)
+library(XML) #You'll need to install this package first
 url <- "http://www.baseball-reference.com/leagues/MLB/2016-standings.shtml"
 tab.baseball <- readHTMLTable(url)
 names(tab.baseball)
@@ -96,7 +96,7 @@ From my perspective, columns 7, 20, 23, and 24 are each problematic to call.
 names(tab.standings)[c(7, 20, 23, 24)]
 ```
 
-3. What is wrong with these four variable names? 
+**Q3** What is wrong with these four variable names? 
 
 Instead of renaming **every** variable, we can rename certain ones as follows.
 
@@ -132,7 +132,7 @@ tab.standings1 <- tab.standings1 %>%
 tab.standings1 %>% head()
 ```
 
-5. Which team finished with the best won-loss percentage in one-run games? Which team finished with the worst?
+**Q4** Which team finished with the best won-loss percentage in one-run games? Which team finished with the worst?
 
 ## For loops and data scraping.
 
@@ -166,7 +166,7 @@ url
 
 You'll see why this makes sense in the forthcoming loop. Note that this code will take a few minutes to run - it's accessing roughly 35 years worth of data. See if you can answer question 6 while the `for` loop runs.
 
-6. At each step below, identify what R is doing.
+**Q5**. At each step below, identify what R is doing.
 
 
 ```r
@@ -200,7 +200,7 @@ standings.all1 %>% head()
 
 Finally, we plot the data over time.
 
-7. Make a plot of team performance in one-run games over time, faceting and/or grouping by team. Add appropriate titles and labels, as well as a horizontal line across 0.500 on the y-axis. Have any teams consistently outperformed or underperformed in this metric?
+**Q6**. Make a plot of team performance in one-run games over time, faceting and/or grouping by team. Add appropriate titles and labels, as well as a horizontal line across 0.500 on the y-axis. Have any teams consistently outperformed or underperformed in this metric?
 
-8. Use similar code to track team won-loss percentage over time. This is the variable `W-L%`.
+**Q7** Use similar code to track team won-loss percentage over time. This is the variable `W-L%`. Note that you do **not** need to use the `separate` function. 
 
