@@ -1,0 +1,109 @@
+---
+title: "DataViz Homework 05 graphs"
+author: "Your Name Here"
+output: html_document
+---
+
+#  Homework 05:  The graphical model
+
+***General instructions for homeworks***: 
+
++  Make a new R Markdown file (.Rmd), referring to the assignment on the course Github page
++  Change the heading to include your author name
++  Save the R Markdown file (named as:  [MikeID]-[Homework01].Rmd -- e.g. "mlopez-Lab01.Rmd") to somewhere where you'll be able to access it later (zip drive, My Documents, Dropbox, etc)
++  Your file should contain the code/commands to answer each question in its own code block, which will also produce plots that will be automatically embedded in the output file
++  **Each answer must be supported by written statements (unless otherwise specified) as well as any code used**: In other words, if the answer is `24`, you should write "The answer is 24" (as opposed to just showing the code and output).
++  Include the names of anyone you collaborated with at the top of the assignment
+
+
+
+##  Problem 1
+
+The website Business Insider has an article showing gender-based comparisons of attraction, linked [here](http://www.businessinsider.com/dataclysm-shows-men-are-attracted-to-women-in-their-20s-2014-10). Our interest is in the first two graphs, `a man's age vs. the age of women who look best to him`, and `a woman's age vs. the age of the men who look best to her.` Note that these two graphs were initially published in a book titled `Dataclysm`.
+
++ In 2-3 clear and concise sentences, what point are the author's trying to make? And how do you think audience members typically interpret these two charts?
++ With reference to the truth continuum, explain how "truthful" this graph is: mostly untruthful, slightly untruthful, slightly truthful, mostly truthful. What information could be added to make the graph more "truthful"?
+
+**Answers covered in class. The main issue is that the modal age of attractiveness does not provide enough information regarding age preferences**
+
+
+## Problem 2
+
+A plot shows the age adjusted, county-level kidney cancer death rates across the United States between 1980 and 1989. That plot is linked [here](https://postimg.org/image/arvoaftlt/). For sake of this question, assume that clearer labels and titled were provided, and instead focus on the content of the plot.
+
++ In 2-3 clear and concise sentences, what point are the author's trying to make? And how do you think audience members typically interpret this charts?
++ With reference to the truth continuum, explain how "truthful" this graph is: mostly untruthful, slightly untruthful, slightly truthful, mostly truthful. What information could be added to make the graph more "truthful"? 
+
+**Answers covered in class. The main issue is that smaller counties are more likely to yield extreme cancer rates. For example, with only 100 subjects and no kidney cancer deaths, the county level death would be 0. This is why all of the extreme rates are observed in less populated counties.**
+
+
+
+## Problem 3
+
+Return to the `midwest` data set. We are going to use the `midwest` data to walk through how different graphs can attempt to answer the same type of question using different approaches. 
+
+Our interest is in characterizing child poverty rates (`percchildbelowpovert`) between metro areas and non metro areas. The focus of this question is on the motiviations behind each graph and how they are likely to be interpreted.
+
+First, because `inmetro` is coded as a numeric variable, we want R to identify that it actually represents a factor. 
+
+```{r}
+library(ggplot2); library(dplyr)
+midwest <- midwest %>% mutate(inmetro = ifelse(inmetro == 1, "Metropolitan", "Non-metropolitan"))
+
+```
+
+1. Make each of the graphs in linked document [(here)](https://github.com/statsbylopez/DataViz/blob/master/Homeworks/HW5_plots.pdf), labeled (A) - (C). 
+
+
+
+
+#  A
+
+```{r}
+library(ggplot2); library(dplyr)
+midwest <- midwest %>% mutate(inmetro = ifelse(inmetro == 1, "Metropolitan", "Non-metropolitan"))
+
+
+mid1 <- midwest %>% group_by(inmetro) %>% summarise(ave.ed = mean(percchildbelowpovert))
+ggplot(mid1, aes(factor(inmetro), ave.ed)) + 
+  geom_bar(stat = "identity") + 
+  ylab("Percent") + 
+  xlab("County status") +
+  ggtitle("Average county-level child poverty % by county status")
+
+```
+
+# B
+
+
+```{r}
+ggplot(midwest, aes(x = factor(inmetro), y = percchildbelowpovert)) + 
+  geom_violin()  + xlab("County status") + ylab("Percent") + 
+  ggtitle("Distribution of county-level child poverty %") + 
+  coord_flip() 
+```
+
+# C
+
+```{r}
+
+ggplot(midwest, aes(perchsd, percchildbelowpovert, colour = inmetro)) + 
+  geom_point()  + geom_smooth() + xlab("Percent with high school diploma") + ylab("Percent child in poverty") + 
+  ggtitle("Distribution of county-level child poverty %") 
+```
+
+
+2. For each graph, summarize in approximately 2 sentences what the chart is showing regarding the relationship between child poverty rates and city metropolitan status. 
+
+**Answers will vary**
+
+
+3.  (A) - (C) are arranged from left to right with respect to the truth continuum. Identify the main improvement in `truth` made between when moving from (A) to (B) and from (B) to (C).
+
+**(A) to (B) highlights the importance of looking at each data point, as opposed to the summary of data points. In this instance, the skewness of county level child poverty percentage is highlighted in Non-metro counties. As a result, although the average county-level percentage is higher in non-metro areas, its in part due to a few outliers.**
+
+**(B) to (C) shows that when accounting for education partially explains the difference between Metro and Non-Metro areas. That is, when looking at counties with similar education levels, there is no difference between the two county types. This adds context to the previous conclusion which showed non-metro areas have higher poverty rates than metro areas; its partially explained by the differences in education.**
+
+4. Suggest ways that even the most `truthful` graph (C) could be improved.
+
+**Answers will vary. Each county is treated the same - in truth, some are much bigger than others. The label on the legend could be improved. Might be worth looking at the countries with extreme poverty rates, too**

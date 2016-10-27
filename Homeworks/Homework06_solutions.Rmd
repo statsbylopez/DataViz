@@ -1,0 +1,78 @@
+---
+title: "DataViz Homework 06"
+author: "Your Name Here"
+output: html_document
+---
+
+#  Homework 06:  Accounting for uncertainty
+
+***General instructions for homeworks***: 
+
++  Make a new R Markdown file (.Rmd), referring to the assignment on the course Github page
++  Change the heading to include your author name
++  Save the R Markdown file (named as:  [MikeID]-[Homework01].Rmd -- e.g. "mlopez-Lab01.Rmd") to somewhere where you'll be able to access it later (zip drive, My Documents, Dropbox, etc)
++  Your file should contain the code/commands to answer each question in its own code block, which will also produce plots that will be automatically embedded in the output file
++  **Each answer must be supported by written statements (unless otherwise specified) as well as any code used**: In other words, if the answer is `24`, you should write "The answer is 24" (as opposed to just showing the code and output).
++  Include the names of anyone you collaborated with at the top of the assignment
+
+
+
+##  Problem 1
+
+538 had an interesting article a short time ago that considered the potential effects of affirmative action on black and Hispanic enrollment. That article is linked [here](http://fivethirtyeight.com/features/heres-what-happens-when-you-ban-affirmative-action-in-college-admissions/). Our interest is in each of the first two graphs, `Banning affirmative action hurts black enrollment`, and `Banning affirmative action hurts black enrollment.` 
+
++ In 2-3 clear and concise sentences, what point is the author trying to make regarding enrollment? 
++ Look closely at the trend lines, and consider whether or not the plot titles accurately reflect in the data
++ With reference to the truth continuum, explain how "truthful" this graph is: mostly untruthful, slightly untruthful, slightly truthful, mostly truthful. What information could be added to make the graph more "truthful"?
+
+
+**Answers covered in class. The main issue is that the graph title does not match conclusions in the figure. The trend lines need standard error bars - if included, there's undoubtably too much overlap to conclude a difference in trends. **
+
+## Problem 2
+
+Return to the `nycflights13` package, and the `flights` data set. Our goal is to compare the likelihood of an departure delay given the flight's origin. Are certain NYC airports easier to get our of than others?
+
+```{r}
+library(nycflights13)
+flights <- na.omit(flights) %>% 
+  mutate(is.delay = ifelse(dep_delay > 5, "Delayed", "Not-delayed"))
+
+flights1 <- flights %>% group_by(origin) %>%
+  summarise(n.flights = n(), n.delays = sum(is.delay == "Delayed"), 
+            rate = n.delays/n.flights, moe = 1/n.flights) 
+limits <- aes(ymin = rate - moe, ymax = rate + moe)
+ggplot(flights1, aes(origin, rate, fill  = origin)) + geom_bar(stat = "identity") + 
+  geom_errorbar(limits)
+```
+
++ First, referring to our code from the last lecture and lab, use the `ifelse()` command to create a new variable (`is.delay`) for whether or not a flight has an departure delay more than 5 minutes (labeled as `Delayed`) or not (labeled as `Not Delayed)`
+
++ Next, what are the rates of `is.delay` at each of the three NYC airports?
+
++ Make a bar graph showing these rates
+
++ Make a bar graph showing these rates, adding in error bars to account for uncertainty in these proportions. Note that whether or not a flight is delayed is a *categorical* variable. 
+
++ Return to our initial question: Are certain airports easier to get out of (from a delay perspective) than others? Or do you think the observed differences are due to chance? Answer in 1-2 sentences.
+
+**As shown in the barchart, the proportion of delays are roughly 34%, 29%, and 26%, comparing EWR, JFK, and LGA. The observed differences are likely unaccounted for by chance alone: there is no overlap in the error bars**
+
+
+## Question 3
+
+The `ggthemes()` package presented in our last lab provides easy-to-use themes and colour schemes for improved visualizations.
+
+Refer to the `mtcars` data set and the following plot, which compares the miles per gallon by car weight (in 1000 lbs), based on number of forward gears. 
+
+```{r}
+ggplot(mtcars, aes(x = wt, y = mpg, colour = factor(gear))) +
+  geom_point() +
+  ggtitle("Cars") + 
+  theme_economist() + scale_colour_economist() 
+```
+
++ Try different themes and colour schemes. With reference to data-ink ratio, which is best and which is worst? Show each of these plots. 
+
++ Which theme do you like best? Show this plot, and in one sentence say why you like it.
+
+**Answers will vary**
