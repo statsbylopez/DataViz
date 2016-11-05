@@ -1,0 +1,196 @@
+---
+title: "DataViz Homework 08"
+author: "Your Name Here"
+output: html_document
+---
+
+#  Homework 08:  Making Maps
+
+**Note**: This homework is the combination of a lab and a homework. Answer questions where provided, but feel free to delete any redundant material.
+
+***General instructions for homeworks***: 
+
++  Make a new R Markdown file (.Rmd), referring to the assignment on the course Github page
++  Change the heading to include your author name
++  Save the R Markdown file (named as:  [MikeID]-[Homework01].Rmd -- e.g. "mlopez-Lab01.Rmd") to somewhere where you'll be able to access it later (zip drive, My Documents, Dropbox, etc)
++  Your file should contain the code/commands to answer each question in its own code block, which will also produce plots that will be automatically embedded in the output file
++  **Each answer must be supported by written statements (unless otherwise specified) as well as any code used**: In other words, if the answer is `24`, you should write "The answer is 24" (as opposed to just showing the code and output).
++  Include the names of anyone you collaborated with at the top of the assignment
+
+
+
+## Part I: Additional map notes
+
+On page two of the [maps package documentation](https://cran.r-project.org/web/packages/maps/maps.pdf), we see that in addition to `state`, the `maps` package includes `county`, `france`, `italy`, `nz`, `usa`, `world` and `world2` files.
+
+Let's take a look at the state level data. First, we grab the data and store it as `MainStates`, plotting with a light blue fill. 
+
+
+```{r eval=FALSE}
+library(ggthemes)
+library(dplyr)
+library(ggplot2)
+library(ggmap)
+library(maps)
+library(mapdata)
+MainStates <- map_data("state")
+ggplot() + 
+  geom_polygon( data=MainStates, aes(x=long, y=lat, group=group),
+                color="black", fill="lightblue", linetype = 1, alpha = 1, size = 1) + 
+  coord_fixed(1.3)  + 
+  theme_map()
+```
+
+There are a few ways to potentially improve this map by adding a . 
+
+First, you can change the size of the polygon lines using the `size = `. The default is `size = 1`, and values greater than 1 result in larger line widths. 
+
+Second, `linetype` dictates the type of line with which we make the polygon. The default is straight lines (`alpha = 1`), but these can be tweaked to dashed lines of different types. 
+
+Third, `alpha` dictates the filling density. The default is `alpha = 1` - values closer to 0 will lead to a lighter fill.
+
+```{r eval=FALSE, echo=FALSE}
+library(ggthemes)
+MainStates <- map_data("state")
+ggplot() + 
+  geom_polygon( data=MainStates, aes(x=long, y=lat, group = group),
+                color="black", fill="lightblue", linetype = 2, alpha = 0.1) + 
+  coord_fixed(1.3)  + 
+  theme_map()
+```
+
+Please use this graph above for the following three questions.
+
+**Q1** Use the graph above: Make a plot using a line color of blue, a linetype of 4, a dark-green fill with a filling density of 0.3, and a line width of 0.8. 
+
+**Q2** Use the graph above: Remove the `group = group` command, and explain what happens when the grouping is ignored.
+
+**Q3** Use the graph above: Add in three points, showing (i) Chicago (ii) Saratoga Springs and (iii) one unique place that you have travelled too or would like to travel too. 
+
+
+
+```{r eval=FALSE, echo=FALSE}
+# SAMPLE SOLUTIONS
+AllCounty <- map_data("county")
+ggplot() + geom_polygon( data=AllCounty, aes(x=long, y=lat, group=group),
+        color="black", fill="lightblue")
+   
+AllWorld <- map_data("world")
+ggplot() + geom_polygon( data=AllWorld, aes(x=long, y=lat, group=group), color="white", fill="darkblue" )
+
+ggplot() + geom_polygon( data=MainStates, aes(x=long, y=lat, group = group), fill = "grey", 
+                         color = "black")
+```
+
+## Part II Customizing your map
+
+In addition to data files from the `maps` package, we will use the  [StatePopulation](https://simple.wikipedia.org/wiki/List_of_U.S._states_by_population) data, which includes the **state name**, **estimated population**, and the **number of electoral college votes** each state is allocated.
+
+Now that we have created a base map of the mainland states, we will color each state according to its population. The first step is to use the `dplyr` package to merge the `MainStates` and `StatePopulation` files.
+
+```{r, eval = FALSE}
+StatePopulation <- read.csv("https://raw.githubusercontent.com/statsbylopez/DataViz/master/Homeworks/Wiki.States.csv", head = TRUE, sep = ",")
+StatePopulation %>% head(3)
+StatePopulation1 <- StatePopulation %>% 
+  mutate(region = tolower(State))
+# Use the dplyr package to merge the MainStates and StatePopulation files
+MergedStates <- inner_join(MainStates, StatePopulation1, by = "region")
+MergedStates %>% head()
+```
+
+
+**Q4** Identify the role of the `tolower()` function above. Additionally, why did this new variable need to be created?
+
+Next we create a base map of the mainland United States, using state population as a fill variable.
+
+```{r, eval = FALSE}
+# Create a Choropleth map of the United States
+p <- ggplot() + 
+  geom_polygon(data=MergedStates, 
+          aes(x=long, y=lat, group=group, fill = Population/1000000), 
+          color="white", size = 0.2) + 
+  coord_fixed(1.3)
+p
+```
+
+**Remarks**
+
+* Instead of using `population`, we use `population/1000000`. Each state is colored by population size (in millions) to make the legend easier to read.
+
+* Once a map is created, it is often helpful to modify color schemes, determine how to address missing values (na.values) and formalize labels. Notice that we assigned the graph a name, `p`. This is particularly useful as we add new components to the graph.
+
+```{r, eval = FALSE}
+p1 <- p + scale_fill_continuous(name="Population\n(millions)", 
+            low = "lightgreen", high = "darkgreen",limits = c(0,40), 
+            breaks=c(5,10,15,20,25,30,35), na.value = "grey50") +
+           labs(title="State Population in the Mainland United States") 
+p1
+```
+
+**Q5** What columns were added to the `MainStates` file when it was joined with the `StatePopulation` file?
+
+**Q6** Create a choropleth map showing the number of electorate votes each state gets (`electorate`). Make the state borders purple with size = 1. Also change the color scale for state populations, with low populations colored white and states with high populations colored dark red. 
+```{r, echo = FALSE, eval = FALSE}
+p <- ggplot() + 
+  geom_polygon(data=MergedStates, 
+          aes(x=long, y=lat, group=group, fill = Elect), 
+          color="purple", size = 0.2) + 
+  coord_fixed(1.3) + 
+  scale_fill_continuous(name="Electorate votes", 
+          low = "white", high = "darkred") +
+          labs(title="Electorate votes in the Mainland United States")
+p
+```
+
+
+## Part III: the `us.cities` file
+
+The `maps` package also includes a `us.cities` file. The following code adds a point for each major city in the United States. Notice that the size of the point is determined by the population of that city.
+
+```{r, eval = FALSE}
+us.cities %>% head()
+p <- ggplot() + 
+  geom_polygon(data = MainStates, aes(x = long, y = lat, group = group), fill = "grey") + 
+        geom_point(data=us.cities, aes(x=long, y=lat, size = pop)) + 
+        scale_size(name="Population") + 
+  coord_fixed(1.3)
+p
+```
+
+It appears that the `us.cities` file includes cities in Hawaii and in Alaska. We use the `dplyr` package to eliminate these four cities and make a final set of maps.
+
+```{r, eval = FALSE}
+MainCities <- filter(us.cities, long>=-130)
+
+p <- ggplot() + 
+  geom_polygon(data=MergedStates, 
+          aes(x=long, y=lat, group=group, fill = Population/1000000), 
+          color="white", size = 0.2) + 
+  coord_fixed(1.3)
+  
+p1 <- p + scale_fill_continuous(name="State Population", low = "lightblue", 
+            high = "darkblue",limits = c(0,40), breaks=c(5,10,15,20,25,30,35), 
+            na.value = "grey50") +
+      labs(title="Population (in millions) in the Mainland United States")
+p1
+
+p2 <- p1 + geom_point(data=MainCities, aes(x=long, y=lat, size = pop/1000000), 
+            color = "gold", alpha = .5) + scale_size(name="City Population")
+p2
+```
+
+**Q7** Restrict the `MainStates` and `MainCities` files to only a few contiguous states, such as New York, Vermont,  New Hampshire, Massachusetts, Rhode Island, and Connecticut. Make a plot of these cities, showing only state capitals. 
+
+You could use the following code for help:
+
+```{r eval=FALSE}
+NewStates <- MainStates %>%
+  filter(region ==  "new york" | region ==
+     "vermont" | region ==  "new hampshire" | region ==
+     "massachusetts" | region ==  "rhode island" | 
+      region ==  "connecticut")
+NewCities <- MainCities %>% 
+  filter(capital == 1)
+```
+
+
