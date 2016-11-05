@@ -59,18 +59,6 @@ Please use this graph above for the following three questions.
 
 
 
-```{r eval=FALSE, echo=FALSE}
-# SAMPLE SOLUTIONS
-AllCounty <- map_data("county")
-ggplot() + geom_polygon( data=AllCounty, aes(x=long, y=lat, group=group),
-        color="black", fill="lightblue")
-   
-AllWorld <- map_data("world")
-ggplot() + geom_polygon( data=AllWorld, aes(x=long, y=lat, group=group), color="white", fill="darkblue" )
-
-ggplot() + geom_polygon( data=MainStates, aes(x=long, y=lat, group = group), fill = "grey", 
-                         color = "black")
-```
 
 ## Part II Customizing your map
 
@@ -90,6 +78,9 @@ MergedStates %>% head()
 
 
 **Q4** Identify the role of the `tolower()` function above. Additionally, why did this new variable need to be created?
+
+
+**Q5** What columns were added to the `MainStates` file when it was joined with the `StatePopulation` file?
 
 Next we create a base map of the mainland United States, using state population as a fill variable.
 
@@ -117,7 +108,6 @@ p1 <- p + scale_fill_continuous(name="Population\n(millions)",
 p1
 ```
 
-**Q5** What columns were added to the `MainStates` file when it was joined with the `StatePopulation` file?
 
 **Q6** Create a choropleth map showing the number of electorate votes each state gets (`electorate`). Make the state borders purple with size = 1. Also change the color scale for state populations, with low populations colored white and states with high populations colored dark red. 
 ```{r, echo = FALSE, eval = FALSE}
