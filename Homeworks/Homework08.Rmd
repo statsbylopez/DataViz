@@ -41,23 +41,13 @@ ggplot() +
   theme_map()
 ```
 
-There are a few ways to potentially improve this map by adding a . 
+There are a few ways to potentially improve this map. 
 
 First, you can change the size of the polygon lines using the `size = `. The default is `size = 1`, and values greater than 1 result in larger line widths. 
 
 Second, `linetype` dictates the type of line with which we make the polygon. The default is straight lines (`alpha = 1`), but these can be tweaked to dashed lines of different types. 
 
 Third, `alpha` dictates the filling density. The default is `alpha = 1` - values closer to 0 will lead to a lighter fill.
-
-```{r eval=FALSE, echo=FALSE}
-library(ggthemes)
-MainStates <- map_data("state")
-ggplot() + 
-  geom_polygon( data=MainStates, aes(x=long, y=lat, group = group),
-                color="black", fill="lightblue", linetype = 2, alpha = 0.1) + 
-  coord_fixed(1.3)  + 
-  theme_map()
-```
 
 Please use this graph above for the following three questions.
 
