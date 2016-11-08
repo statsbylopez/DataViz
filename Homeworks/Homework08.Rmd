@@ -109,7 +109,7 @@ p1
 ```
 
 
-**Q6** Create a choropleth map showing the number of electorate votes each state gets (`electorate`). Make the state borders purple with size = 1. Also change the color scale for state populations, with low populations colored white and states with high populations colored dark red. 
+**Q6** Create a choropleth map showing the number of electorate votes each state gets (`electorate`). Make the state borders purple with size = 1. Also change the color scale for state electorates, with low electorates colored white and states with high populations colored dark red. 
 
 
 
