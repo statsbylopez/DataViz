@@ -160,7 +160,7 @@ NewStates <- MainStates %>%
      "massachusetts" | region ==  "rhode island" | 
       region ==  "connecticut")
 NewCities <- MainCities %>% 
-  filter(capital == 1)
+  filter(capital == 2)
 ```
 
 
