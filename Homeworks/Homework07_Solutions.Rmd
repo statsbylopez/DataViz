@@ -1,0 +1,76 @@
+---
+title: "DataViz Homework 07"
+author: "Your Name Here"
+output: html_document
+---
+
+#  Homework 07:  Accessing and cleaning data
+
+***General instructions for homeworks***: 
+
++  Make a new R Markdown file (.Rmd), referring to the assignment on the course Github page
++  Change the heading to include your author name
++  Save the R Markdown file (named as:  [MikeID]-[Homework01].Rmd -- e.g. "mlopez-Lab01.Rmd") to somewhere where you'll be able to access it later (zip drive, My Documents, Dropbox, etc)
++  Your file should contain the code/commands to answer each question in its own code block, which will also produce plots that will be automatically embedded in the output file
++  **Each answer must be supported by written statements (unless otherwise specified) as well as any code used**: In other words, if the answer is `24`, you should write "The answer is 24" (as opposed to just showing the code and output).
++  Include the names of anyone you collaborated with at the top of the assignment
+
+
+
+## Problem 1
+
+Return to the Baseball Reference from Lab 07. Make a plot of win percentage over time, faceted by each franchise. Include the code used to scrape using the `XML` package. Take care with axis labels and titles. 
+
+
+```{r}
+library(XML) #You'll need to install this package first
+library(dplyr)
+standings.all <- NULL
+for (seasons in 1980:2016){
+  url <- paste("http://www.baseball-reference.com/leagues/MLB/", seasons, "-standings.shtml", sep = "")
+  standings.year <- readHTMLTable(url)
+  df.temp <- standings.year$expanded_standings_overall
+  df.temp <- df.temp %>%
+    select(Tm, `W-L%`)
+  df.temp$Season <- seasons
+  standings.all <- rbind(standings.all, df.temp)
+}
+dim(standings.all)
+standings.all <- standings.all %>% filter(Tm != "Avg")
+
+standings.all1 <- standings.all %>%
+  mutate(WLP = as.numeric(as.character(`W-L%`)))
+
+ggplot(standings.all1, aes(Season, WLP)) + 
+  geom_path() + facet_wrap(~Tm)
+
+```
+
+## Problem 2
+
+One approach for grabbing data finds data already stored on the internet as a .csv. In this case, in place of copying and pasting the data into Excel (and saving as a .csv, and then uploading to R), we can use the RCurl package to grab the data directly. 
+
+Start by installing the `RCurl` package. Next, use the following code to upload the Disproportionality data set, which contains what's called the Gallagher Index, which represents the electoral disproportionality in each country. Read more about the data at this link here:
+
+[https://github.com/christophergandrud/Disproportionality_Data](https://github.com/christophergandrud/Disproportionality_Data)
+
+```{r, eval = FALSE}
+library(RCurl)
+url <- getURL("https://raw.githubusercontent.com/christophergandrud/Disproportionality_Data/master/Disproportionality.csv")
+disp.df <- read.csv(text = url)
+disp.df %>% head()
+```
+
+**Part I** Make a scatter plot of disproportionality over time, and identify if there have been meaningful increases or decreases in disproportionality across time.
+
+**Part II** Same as Part I, only faceted by country. Include only the four countries with at least 25 observations. How does this better inform your conclusions in Part I?
+
+
+```{r}
+disp.df %>% group_by(country) %>%
+  count() %>% filter(n >= 20) %>% print.data.frame()
+
+ggplot(disp.df, aes(year, disproportionality)) + geom_point() + geom_smooth()
+countries <- c("Australia", "United States", "Japan", "Denmark")
+ggplot(filter(disp.df, country %in% countries)
+              , aes(year, disproportionality)) + geom_point() + geom_smooth() + facet_wrap(~country)
