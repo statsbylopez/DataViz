@@ -1,0 +1,24 @@
+---
+title: "DataViz Lab 09"
+author: "Your Name Here"
+output:
+  html_document:
+    keep_md: yes
+  pdf_document: default
+---
+
+```{r knitr_options, eval = FALSE, include=FALSE}
+#Here's some preamble, which makes ensures your figures aren't too big
+knitr::opts_chunk$set(fig.width=3, fig.height = 2, eval=FALSE,
+message=FALSE)
+```
+
+***General instructions for labs***: 
+
+For today's lab, click on the url below:
+
+[http://rpubs.com/SkidmoreDataViz/227392](http://rpubs.com/SkidmoreDataViz/227392)
+
+The code to make the charts is shown here:
+
+[http://rpubs.com/SkidmoreDataViz/227689](http://rpubs.com/SkidmoreDataViz/227689)
