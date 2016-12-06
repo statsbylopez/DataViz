@@ -54,7 +54,7 @@ For reference, there are several lists of `ggplot2` colours: one common one is p
 
 #### Categorical variables
 
-Since manually choosing colors can be difficult, a color specialist (Cynthia Brewer) created colours for print and web available in the package `RColorBrewer`. You will need to install and load this package to use.
+Since manually choosing colors can be difficult, a color specialist ([Cynthia Brewer](http://www.personal.psu.edu/cab38/)) and cartographer at Penn State created colours for print and web available in the package `RColorBrewer`. You will need to install and load this package to use.
 
 
 ```r
@@ -69,7 +69,7 @@ The exact colouring schemes in the `RColorBrewer` package can be obtained using:
 display.brewer.all()
 ```
 
-In addition to Crayola-style names, a more general and machine-readable approach to color specification is as hexadecimal triplets. That's what is behind RColorBrewer. In other wors, Dark2 palette is actually stored:
+In addition to Crayola-style names, a more general and machine-readable approach to color specification is as hexadecimal triplets. That's what is behind RColorBrewer. In other words, Dark2 palette is actually stored:
 
 
 ```r
@@ -148,7 +148,10 @@ d1
 
 Now we're rolling. This is a really useful graphs for projects, when you may want to draw the audience's attention to certain points or regions of the graph.
 
-**Question 5.** Add a smoothed trend to the above chart for *only* `VVS1` diamonds. Does it make sense to use a line or a curve?
+**Question 5**: Walk through each line of code above to identify what it is doing. How do the red points get added?
+
+
+**Question 6.** Add a smoothed trend to the above chart for *only* `VVS1` diamonds. Does it make sense to use a line or a curve?
 
 Finally, we can do this for each diamond. We first need to use a neat trick, which is described in more detailed in a blog post [here](https://www.r-bloggers.com/plotting-background-data-for-groups-with-ggplot2/). 
 
@@ -167,13 +170,14 @@ d1 <- ggplot(dsamp, aes(carat, price, colour = clarity)) +
   geom_point(data = dsamp.background, aes(carat, price), alpha = 0.8, colour = "grey") + 
   geom_point() + 
   facet_wrap(~clarity)
+d1
 ```
 
 
 
-**Question 6**: Add a smoothed curve to each of the facets above, with a separate one for each clarity type. Describe the association between price and carat among different clarity types. 
+**Question 7**: Add a smoothed curve to each of the facets above, with a separate one for each clarity type. Describe the association between price and carat among different clarity types. Identify an association that you can see in this chart that you would not have been able to identify using the charts above.
 
-**Question 7**: Refine the graph by: (i) reducing the darkness of the grey points by using `alpha = 0.4`, (ii) adding a better colour scheme, and getting rid of the clarity legend. 
+**Question 8**: Refine the graph by: (i) reducing the darkness of the grey points by using `alpha = 0.4`, (ii) adding a better colour scheme, and getting rid of the clarity legend. 
 
 
 ## Interactivity
@@ -194,12 +198,12 @@ Note that when done in R, you can also zoom in and out by using the tabs on top 
 **Question 8**. Knit your lab with an interactive graph. Ensure that the interactivity shows up on the knit version.  
 
 
-**Question 9**. Think of all the plots we've done this year, both univariate, bivariate, and multivariate. On which ones does it make the *most* sense? On which ones does it make the *least* sense?
+**Question 10**. Think of all the plots we've done this year, both univariate, bivariate, and multivariate. On which ones does it make the *most* sense? On which ones does it make the *least* sense?
 
 
 
 
-## On your own I
+## On your own Part I
 
 Returning to the diamonds data set (using the `dsamp`). Create a histogram of diamond carat (`carat`), with a separate histogram for each cut (`cut`). As in above, colour your faceted histograms to ensure a grey background with the histograms of all diamonds in the `dsamp` data set. What do we learn about the distributions of diamont carats, both overall and within each cut?
 
@@ -207,7 +211,7 @@ Returning to the diamonds data set (using the `dsamp`). Create a histogram of di
 
 
 
-## On your own II
+## On your own Part II
 
 Using something besides a scatter plot, make an interactive plot using the diamonds data set. Think carefully about the role of interactivity, and be prepared to justify your choice. 
 
