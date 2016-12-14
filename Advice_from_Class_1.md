@@ -40,3 +40,5 @@ Students in the Fall 2016 course were asked to give advice to students taking th
 17. Knit as you go along to avoid backtracking if something doesn't work, it'll save you at least one headache.
 
 18. Don't give up and/or get too frustrated when R/RStudio doesn't work. Go see Lopez in his office hours because he's helpful and has great taste in music. 
+
+19. The diversity of majors and interests of this class was awesome. Data viz is incredibly interdisciplinary, and I like having comp sci/poly sci/psych/social work majors. 
