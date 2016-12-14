@@ -17,6 +17,10 @@ For students who are unsure, you can write up your file as a blog post and share
 
 Your Extra Credit report should be a mix between the formal final project for our class and what you presented today. My recommendation is to complete the final project as you see fit, and if you are interested in the extra credit, then remove some of the wording and descriptions to make your file more readable. Keep in mind, a professor or the Kaggle site is not going to want to read lengthy words describing each figure, but they are going to want to see *some* substance in terms of writing and motivation.
 
+### Proof
+
+For the credit itself, show me a copy of what was submitted. This could be as simple as cc'ing me on an email, or sending the link to your blog post or Kaggle site.
+
 ### Final thought
 
 Know your audience: if you are posting on Kaggle, it is custom to use code. 
